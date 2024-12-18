@@ -1,0 +1,46 @@
+{
+    "env": {
+      "browser": true,
+      "es2021": true,
+      "node": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:react-hooks/recommended",
+      "prettier"
+    ],
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "ecmaVersion": "latest",
+      "sourceType": "module"
+    },
+    "plugins": [
+      "react",
+      "react-hooks",
+      "prettier"
+    ],
+    "rules": {
+      "react/react-in-jsx-scope": "off", // React 17+ no requiere importar React en cada archivo
+      "react/prop-types": "off", // Si no usas PropTypes, puedes deshabilitar esta regla
+      "prettier/prettier": [
+        "error",
+        {
+          "singleQuote": true,
+          "trailingComma": "es5",
+          "semi": true
+        }
+      ],
+      "no-unused-vars": "warn", // Avisa pero no da error si hay variables no usadas
+      "eqeqeq": ["error", "always"], // Asegurarse de usar === en lugar de ==
+      "no-console": "warn" // Avísanos si usamos console.log() en el código
+    },
+    "settings": {
+      "react": {
+        "version": "detect" // Detecta automáticamente la versión de React
+      }
+    }
+  }
+  
