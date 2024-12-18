@@ -30,7 +30,8 @@
         {
           "singleQuote": true,
           "trailingComma": "es5",
-          "semi": true
+          "semi": true,
+          "endOfLine": "auto"
         }
       ],
       "no-unused-vars": "warn", // Avisa pero no da error si hay variables no usadas
