@@ -1,31 +1,28 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import languages from "../constants/languages";
 import "../styles/languageSwitcher.css";
 
 const LanguageSwitcher = () => {
-  const { t } = useTranslation();
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const currentLanguage = i18n.language || "es";
+
+  const selectedLanguage = useMemo(
+    () => languages.find((lang) => lang.code === currentLanguage),
+    [currentLanguage]
+  );
 
   const handleChangeLanguage = (langCode) => {
     i18n.changeLanguage(langCode);
   };
 
-  const selectedLanguage = languages.find(
-    (lang) => lang.code === currentLanguage
-  );
-
   return (
     <div className="language-selector">
-      <div className="selected-language">
-        <span>
-          {languages.find((lang) => lang.code === currentLanguage)?.flag ||
-            "🌍"}
-        </span>
+      <div className="language-selector__selected">
+        <span>{selectedLanguage?.flag || "🌍"}</span>
         <span>{selectedLanguage ? t(selectedLanguage.nameKey) : ""}</span>
       </div>
-      <ul className="language-list">
+      <ul className="language-selector__list">
         {languages.map((lang) => (
           <li
             key={lang.code}

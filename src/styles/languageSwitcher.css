@@ -1,11 +1,10 @@
-/* src/components/LanguageSelector.css */
 .language-selector {
   display: inline-block;
   position: relative;
   font-family: Arial, sans-serif;
 }
 
-.selected-language {
+.language-selector__selected {
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -15,11 +14,11 @@
   background-color: #f9f9f9;
 }
 
-.selected-language span {
+.language-selector__selected span {
   margin-right: 8px;
 }
 
-.language-list {
+.language-selector__list {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -34,26 +33,26 @@
   z-index: 10;
 }
 
-.language-selector:hover .language-list {
+.language-selector:hover .language-selector__list {
   display: block;
 }
 
-.language-list li {
+.language-selector__list li {
   padding: 10px;
   display: flex;
   align-items: center;
   cursor: pointer;
 }
 
-.language-list li:hover {
+.language-selector__list li:hover {
   background-color: #f0f0f0;
 }
 
-.language-list li.active {
+.language-selector__list li--active {
   font-weight: bold;
   background-color: #e0e0e0;
 }
 
-.language-list li span {
+.language-selector__list li span {
   margin-right: 8px;
 }
