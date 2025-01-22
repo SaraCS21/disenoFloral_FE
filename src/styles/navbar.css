@@ -2,24 +2,40 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  background-color: #333;
-  color: white;
+  gap: 10%;
+
+  padding: 20px 20px;
+  background-color: rgba(85, 109, 53, 0.5);
+  font-size: 20px;
 }
 
 .navbar__logo {
-  flex: 1;
-}
+  width: 10%;
 
-.navbar__logo img {
-  width: 100px;
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    width: 75px;
+    height: 75px;
+    background-color: green;
+    border-radius: 100%;
+
+    text-decoration: none;
+    color: white;
+  }
 }
 
 .navbar__menu {
-  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 55%;
 }
 
-.navbar__menu ul {
+.navbar__menu-list-item {
   display: flex;
   justify-content: center;
   list-style-type: none;
@@ -28,12 +44,19 @@
 }
 
 .navbar__menu-item {
-  margin: 0 15px;
+  margin: 0 60px;
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
 }
 
 .navbar__right-section {
   display: flex;
   align-items: center;
+
+  width: 10%;
 }
 
 .navbar__language-selector {
@@ -42,13 +65,21 @@
 }
 
 .navbar__login-button {
-  padding: 5px 15px;
-  background-color: #4caf50;
-  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 75px;
+  height: 75px;
+
+  background-color: #DEDEDE;
+  border-radius: 100%;
   border: none;
   cursor: pointer;
-}
 
-.navbar__login-button--disabled {
-  background-color: #888;
+  font-size: 40px;
+
+  &--disabled {
+    background-color: #888;
+  }
 }
