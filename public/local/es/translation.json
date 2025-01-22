@@ -1,0 +1,19 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre nosotros",
+    "services": "Servicios",
+    "contact": "Contacto"
+  },
+
+  "language": {
+    "spanish": "Español",
+    "english": "Inglés"
+  },
+
+  "buttons": {
+    "login": "Iniciar sesión"
+  },
+
+  "example_text": "Esto es un texto de ejemplo"
+}

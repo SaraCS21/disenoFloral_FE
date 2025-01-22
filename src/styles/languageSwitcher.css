@@ -1,0 +1,59 @@
+/* src/components/LanguageSelector.css */
+.language-selector {
+  display: inline-block;
+  position: relative;
+  font-family: Arial, sans-serif;
+}
+
+.selected-language {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.selected-language span {
+  margin-right: 8px;
+}
+
+.language-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  display: none;
+  z-index: 10;
+}
+
+.language-selector:hover .language-list {
+  display: block;
+}
+
+.language-list li {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.language-list li:hover {
+  background-color: #f0f0f0;
+}
+
+.language-list li.active {
+  font-weight: bold;
+  background-color: #e0e0e0;
+}
+
+.language-list li span {
+  margin-right: 8px;
+}
