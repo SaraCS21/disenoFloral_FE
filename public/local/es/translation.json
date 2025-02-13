@@ -15,5 +15,12 @@
     "login": "Iniciar sesión"
   },
 
+  "sidenav": {
+    "locations": "Localizaciones",
+    "users": "Usuarios",
+    "events": "Eventos",
+    "invoices": "Facturas"
+  },
+
   "example_text": "Esto es un texto de ejemplo"
 }

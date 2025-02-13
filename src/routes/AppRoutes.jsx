@@ -5,12 +5,10 @@ import Services from "../pages/Services";
 import About from "../pages/About";
 import Contact from "../pages/Contact";
 import Admin from "../pages/Admin";
-import Navbar from "../components/Navbar";
 
 const AppRoutes = () => {
   return (
     <Router>
-      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Services />} />

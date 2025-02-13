@@ -1,0 +1,20 @@
+.admin-page {
+    width: 100%;
+    height: 100vh;
+
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 14vh 100vh;
+    grid-template-areas: 
+        "sidenav topnav"
+        "sidenav content";
+    ;
+}
+
+.admin-content {
+    grid-area: content;
+
+    width: 100%;
+    height: 93vh;
+    padding: 3rem;
+}

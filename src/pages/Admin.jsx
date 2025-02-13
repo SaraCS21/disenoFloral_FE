@@ -1,13 +1,19 @@
-import React from "react";
-import { useTranslation } from "react-i18next";
+import React, { useState } from "react";
+import AdminNavbar from "../components/AdminNavbar";
+import SideNavbar from "../components/SideNavbar";
+import "../styles/adminPage.css";
 
 const Admin = () => {
-  const { t } = useTranslation();
+  const [subNavbarName, setSubNavbarName] = useState("Panel de Adminstración");
 
   return (
-    <div>
-      <h1>Admin</h1>
-      <p>{t("example_text")}</p>
+    <div className="admin-page">
+      <SideNavbar setSubNavbarName={setSubNavbarName} />
+      <AdminNavbar subNavbarName={subNavbarName} />
+
+      <div className="admin-content">
+        <p>Contenido</p>
+      </div>
     </div>
   );
 };

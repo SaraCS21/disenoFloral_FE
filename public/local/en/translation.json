@@ -15,5 +15,12 @@
     "login": "Login"
   },
 
+  "sidenav": {
+    "locations": "Locations",
+    "users": "Users",
+    "events": "Events",
+    "invoices": "Invoices"
+  },
+
   "example_text": "This is an example text"
 }
