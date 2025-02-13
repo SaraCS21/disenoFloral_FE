@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 
-import "../styles/adminCard.css";
+import "../../styles/adminCard.css";
 import { useState } from "react";
 
 const AdminCard = ({ data }) => {

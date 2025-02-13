@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import AdminNavbar from "../components/AdminNavbar";
-import SideNavbar from "../components/SideNavbar";
-import AdminCard from "../components/AdminCard";
+import AdminNavbar from "../components/adminComponents/AdminNavbar";
+import SideNavbar from "../components/adminComponents/SideNavbar";
+import AdminCard from "../components/adminComponents/AdminCard";
 import adminCards from "../constants/adminCards";
 
 import "../styles/adminPage.css";

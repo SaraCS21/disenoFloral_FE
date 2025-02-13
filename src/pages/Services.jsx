@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/navbarComponents/Navbar";
 
 const Services = () => {
   const { t } = useTranslation();

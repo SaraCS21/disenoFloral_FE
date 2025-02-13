@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "./LanguageSwitcher";
-import navbarOptions from "../constants/navbarOptions";
-import "../styles/navbar.css";
+import navbarOptions from "../../constants/navbarOptions";
+import "../../styles/navbar.css";
 
 import { FiUser, FiMenu, FiX } from "react-icons/fi";
 

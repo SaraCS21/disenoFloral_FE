@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import languages from "../constants/languages";
-import "../styles/languageSwitcher.css";
+import languages from "../../constants/languages";
+import "../../styles/languageSwitcher.css";
 
 const LanguageSwitcher = () => {
   const { t, i18n } = useTranslation();

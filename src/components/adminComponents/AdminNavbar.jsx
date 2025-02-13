@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../styles/adminNavbar.css";
+import "../../styles/adminNavbar.css";
 
 import { IoIosArrowDown } from "react-icons/io";
 import { FaUserLarge } from "react-icons/fa6";

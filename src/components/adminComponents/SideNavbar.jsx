@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import sidebarOptions from "../constants/sidebarOptions";
-import "../styles/sideNavbar.css";
+import sidebarOptions from "../../constants/sidebarOptions";
+
+import "../../styles/sideNavbar.css";
 
 import { FaUserLarge } from "react-icons/fa6";
 
