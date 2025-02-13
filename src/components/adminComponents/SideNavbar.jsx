@@ -6,15 +6,16 @@ import "../../styles/sideNavbar.css";
 
 import { FaUserLarge } from "react-icons/fa6";
 
-const SideNavBar = ({ setSubNavbarName }) => {
+const SideNavBar = ({ setSubNavbarName, setSubNavbarOption }) => {
   // TODO: consulta a la BBDD para obtener al usuario
   // TODO: modificar para que mira si el usuario tiene imagen, no si existe
   const [isUser, setIsUser] = useState(false);
 
   const { t } = useTranslation();
 
-  const handleOptionClick = (optionName) => {
+  const handleOptionClick = (optionName, option) => {
     setSubNavbarName(optionName);
+    setSubNavbarOption(option);
   };
 
   return (
@@ -39,7 +40,10 @@ const SideNavBar = ({ setSubNavbarName }) => {
 
       <ul className="navbar-side__options">
         {sidebarOptions.map((option, index) => (
-          <li key={index} onClick={() => handleOptionClick(option.nameKey)}>
+          <li
+            key={index}
+            onClick={() => handleOptionClick(option.nameKey, option.option)}
+          >
             {option.icon}
             <p>{t(option.nameKey)}</p>
           </li>

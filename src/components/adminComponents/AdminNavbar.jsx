@@ -1,11 +1,13 @@
 import { useState } from "react";
-import "../../styles/adminNavbar.css";
-
-import { IoIosArrowDown } from "react-icons/io";
-import { FaUserLarge } from "react-icons/fa6";
 import { useTranslation } from "react-i18next";
 
-const AdminNavbar = ({ subNavbarName }) => {
+import { FaPlus } from "react-icons/fa";
+import { IoIosArrowDown } from "react-icons/io";
+import { FaUserLarge } from "react-icons/fa6";
+
+import "../../styles/adminNavbar.css";
+
+const AdminNavbar = ({ subNavbarName, subNavbarOption }) => {
   const { t } = useTranslation();
 
   // TODO: consulta a la BBDD para obtener al usuario
@@ -40,7 +42,19 @@ const AdminNavbar = ({ subNavbarName }) => {
       </nav>
 
       <nav className="admin-sub-navbar">
-        <h1>{t(subNavbarName)}</h1>
+        <h1
+          style={{ width: `${subNavbarOption !== "default" ? "50%" : "100%"}` }}
+        >
+          {t(subNavbarName)}
+        </h1>
+
+        {subNavbarOption !== "default" && (
+          <div>
+            <button>
+              <FaPlus />
+            </button>
+          </div>
+        )}
       </nav>
     </section>
   );

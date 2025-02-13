@@ -65,9 +65,40 @@
 }
 
 .admin-sub-navbar h1 {
-    width: 100%;
     padding-left: 4%;
 
     font-size: 24px;
     font-weight: normal;
+}
+
+.admin-sub-navbar div {
+    display: flex;
+    justify-content: flex-end;
+
+    width: 50%;
+    padding-right: 4%;
+
+    font-size: 24px;
+    font-weight: normal;
+}
+
+.admin-sub-navbar button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 50px;
+    height: 50px;
+    margin: 0;
+
+    font-size: 1.2rem;
+    background-color: #1A975D;
+
+    border-radius: 100%;
+    border: none;
+    cursor: pointer;
+
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.155);
+    -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.155);
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.155);
 }
