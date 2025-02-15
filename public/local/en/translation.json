@@ -22,10 +22,14 @@
     "invoices": "Invoices"
   },
 
-  "example_text": "This is an example text",
+  "home": {
+    "header": "At FlorArte Events, we create unique floral arrangements to make your event unforgettable."
+  },
 
   "footer": {
     "privacy": "Privacy policies",
     "terms": "Terms and conditions"
-  }
+  },
+
+  "example_text": "This is an example text"
 }
