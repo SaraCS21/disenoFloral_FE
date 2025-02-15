@@ -6,7 +6,7 @@
 
   padding: 20px 20px;
 
-  background-color: rgba(85, 109, 53, 0.5);
+  background-color: rgba(26, 151, 93, 0.857);
   font-size: 20px;
 }
 
@@ -45,8 +45,28 @@
 }
 
 .navbar__menu-item a {
+  position: relative;
+  padding-bottom: 2px; 
+  
   text-decoration: none;
   color: white;
+}
+
+.navbar__menu-item a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; 
+  left: 0;
+
+  width: 0;
+  height: 1px;
+
+  background-color: white;
+  transition: width 0.6s ease;
+}
+
+.navbar__menu-item:hover a::after {
+  width: 100%;
 }
 
 .navbar__menu-item--mobile {
@@ -100,7 +120,7 @@
     height: 100vh;
     padding: 20px 0;
 
-    background-color: rgba(85, 109, 53, 0.9);
+    background-color: rgba(26, 151, 93, 0.857);
     text-align: center;
   
     opacity: 0;
@@ -124,6 +144,7 @@
     opacity: 1;
     transform: translateY(0);
     visibility: visible;
+    z-index: 1;
   }
 
   .navbar__menu-list-item {

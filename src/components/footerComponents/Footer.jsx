@@ -28,7 +28,7 @@ const Footer = () => {
           ))}
         </div>
         <img
-          src="../../../assets/logo/logo-black.png"
+          src="../../../assets/logo/logo-white.png"
           alt="Logo"
           className="footer__logo"
         />
