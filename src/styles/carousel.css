@@ -49,7 +49,6 @@
   white-space: normal;
 }
 
-
 .carousel-track {
   display: flex;
   width: calc(200%);
@@ -71,4 +70,26 @@
   to {
     transform: translateX(-100%);
   }
+}
+
+@media (max-width: 767px) {
+  .carousel-track img {
+    width: calc(50% - 10px); 
+  }
+
+  .carousel-content--wrapper {
+    top: 2.5vh;
+    left: 5%;
+    
+    width: 90%;  
+    height: 25vh;
+  }
+  
+  .carousel-content p {
+    padding: 1rem;
+  
+    line-height: 2.5rem;
+    font-size: 1.3rem;
+  }
+
 }
