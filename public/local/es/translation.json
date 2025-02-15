@@ -22,5 +22,10 @@
     "invoices": "Facturas"
   },
 
-  "example_text": "Esto es un texto de ejemplo"
+  "example_text": "Esto es un texto de ejemplo",
+
+  "footer": {
+    "privacy": "Política de privacidad",
+    "terms": "Términos y condiciones"
+  }
 }
