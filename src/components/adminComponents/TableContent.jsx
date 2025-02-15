@@ -1,39 +1,13 @@
-import { useEffect, useState } from "react";
-
-import { getUsers } from "../../services/userService";
-import { getLocations } from "../../services/locationService";
-import { getEvents } from "../../services/eventService";
-import { getInvoices } from "../../services/invoiceService";
 import adminTableOptions from "../../constants/adminTableOptions";
 
 import { MdEdit, MdDelete } from "react-icons/md";
+import useFetchData from "../../hooks/useFetchData";
 
 const TableContent = ({ subNavbarOption }) => {
-  const [data, setData] = useState([]);
+  const { data, loading, error } = useFetchData(subNavbarOption);
 
-  const fetchDataFunctions = {
-    users: getUsers,
-    locations: getLocations,
-    events: getEvents,
-    invoices: getInvoices,
-  };
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const fetchFunction = fetchDataFunctions[subNavbarOption];
-
-      if (fetchFunction) {
-        try {
-          const dataFetched = await fetchFunction();
-          setData(dataFetched);
-        } catch (error) {
-          console.error(`Error fetching ${subNavbarOption}:`, error);
-        }
-      }
-    };
-
-    fetchData();
-  }, [subNavbarOption]);
+  if (loading) return <p>Cargando...</p>;
+  if (error) return <p>Error al cargar datos</p>;
 
   return (
     <section className="admin-content__table">

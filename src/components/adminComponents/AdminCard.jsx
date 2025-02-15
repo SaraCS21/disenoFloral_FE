@@ -1,13 +1,15 @@
 import { useTranslation } from "react-i18next";
+import useFetchData from "../../hooks/useFetchData";
 
 import "../../styles/adminCard.css";
-import { useState } from "react";
 
 const AdminCard = ({ data }) => {
   const { t } = useTranslation();
 
-  // TODO: consulta a la BBDD para obtener el número total de datos
-  const [contData, setContData] = useState(0);
+  const { data: cardData, loading, error } = useFetchData(data.key);
+
+  if (loading) return <p>Cargando...</p>;
+  if (error) return <p>Error al cargar datos</p>;
 
   return (
     <article
@@ -17,7 +19,7 @@ const AdminCard = ({ data }) => {
       <div className="admin-card__icon">{data.icon}</div>
 
       <div className="admin-card__info">
-        <h1>{contData}</h1>
+        <h1>{cardData.length}</h1>
         <p>{t(data.nameKey)}</p>
       </div>
     </article>

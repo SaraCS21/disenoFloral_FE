@@ -1,13 +1,32 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AdminCard from "./AdminCard";
 import adminCards from "../../constants/adminCards";
 import { getCurrentDate } from "../../utils/getCurrentDate";
 
 import { FaCalendarAlt } from "react-icons/fa";
+import { getEvents } from "../../services/eventService";
 
 const DefaultContent = () => {
-  // TODO: Conectar con la BBDD para ver los eventos próximos
-  const [upcomingEvents, setUpcomingEvents] = useState([]);
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const allEvents = await getEvents();
+        const now = new Date();
+
+        const upcomingEvents = allEvents.filter(
+          (event) => new Date(event.date) > now
+        );
+
+        setEvents(upcomingEvents);
+      } catch (error) {
+        console.error("Error fetching upcoming events:", error);
+      }
+    };
+
+    fetchEvents();
+  }, []);
 
   return (
     <>
@@ -26,12 +45,12 @@ const DefaultContent = () => {
         <p className="admin-content__events__text">Próximos eventos</p>
 
         <div className="admin-content__events__content__dates">
-          {upcomingEvents.length === 0 ? (
+          {events.length === 0 ? (
             <p className="admin-content__events__no-dates">
               No hay eventos próximos
             </p>
           ) : (
-            upcomingEvents.map((event, index) => (
+            events.map((event, index) => (
               <div className="admin-content__events__dates" key={index}>
                 <p>{event.name}</p>
                 <p>

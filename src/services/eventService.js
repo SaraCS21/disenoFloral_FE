@@ -35,7 +35,7 @@ export const createEvent = async (eventData) => {
 
 export const updateEvent = async (id, eventData) => {
   try {
-    const response = await axios.put(`${API_URL}${id}`, eventData);
+    const response = await axios.put(`${API_URL}/${id}`, eventData);
     return response.data;
   } catch (error) {
     console.error("Error updating event:", error);
