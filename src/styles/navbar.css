@@ -2,7 +2,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 10%;
 
   padding: 20px 20px;
 
@@ -10,34 +9,30 @@
   font-size: 20px;
 }
 
-.navbar__logo a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.navbar__logo {
+  width: 20%;
+}
 
-  width: 75px;
-  height: 75px;
-
-  background-color: green;
-  border-radius: 100%;
-
-  text-decoration: none;
-  color: white;
+.navbar__logo img {
+  height: 70px;
 }
 
 .navbar__menu {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 55%;
+  width: 60%;
 }
 
 .navbar__menu-list-item {
   display: flex;
   justify-content: center;
-  list-style-type: none;
+  
+  width: 100%;
   margin: 0;
   padding: 0;
+
+  list-style-type: none;
 }
 
 .navbar__menu-item {
@@ -76,7 +71,7 @@
 .navbar__right-section {
   display: flex;
   align-items: center;
-  width: 10%;
+  width: 20%;
 }
 
 .navbar__login-button {
