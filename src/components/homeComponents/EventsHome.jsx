@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
-import "../../styles/eventsHome.css";
 import eventsHomeOptions from "../../constants/eventsHomeOptions";
+import "../../styles/eventsHome.css";
 
 export default function EventsHome() {
   const { t } = useTranslation();
