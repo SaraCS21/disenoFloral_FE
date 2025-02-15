@@ -23,7 +23,12 @@
   },
 
   "home": {
-    "header": "At FlorArte Events, we create unique floral arrangements to make your event unforgettable."
+    "header": "At FlorArte Events, we create unique floral arrangements to make your event unforgettable.",
+    "breakfasts": "Breakfasts",
+    "workshops": "Workshops",
+    "bouquets": "Bouquets",
+    "weddings": "Weddings",
+    "baskets": "Baskets"
   },
 
   "footer": {

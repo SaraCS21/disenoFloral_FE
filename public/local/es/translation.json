@@ -23,7 +23,12 @@
   },
 
   "home": {
-    "header": "En FlorArte Eventos, creamos arreglos florales únicos para hacer tu evento inolvidable."
+    "header": "En FlorArte Eventos, creamos arreglos florales únicos para hacer tu evento inolvidable.",
+    "breakfasts": "Desayunos",
+    "workshops": "Talleres",
+    "bouquets": "Ramos",
+    "weddings": "Bodas",
+    "baskets": "Cestas"
   },
 
   "footer": {
