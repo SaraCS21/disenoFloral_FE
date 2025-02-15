@@ -5,6 +5,7 @@ import {
   socialMediaOptions,
   privacyLinkOptions,
 } from "../../constants/footerOptions";
+
 import "../../styles/footer.css";
 
 const Footer = () => {
@@ -12,14 +13,15 @@ const Footer = () => {
 
   return (
     <footer className="footer">
-      <div className="footer-row">
-        <div className="social-icons">
+      <div className="footer__row">
+        <div className="footer__social-icons">
           {socialMediaOptions.map((social, index) => (
             <a
               key={index}
               href={social.url}
               target="_blank"
               rel="noopener noreferrer"
+              className="footer__social-icons--media"
             >
               {social.icon}
             </a>
@@ -28,11 +30,15 @@ const Footer = () => {
         <img
           src="../../../assets/logo/logo-black.png"
           alt="Logo"
-          className="logo"
+          className="footer__logo"
         />
-        <div className="legal-links">
+        <div className="footer__legal">
           {privacyLinkOptions.map((link) => (
-            <Link key={link.nameKey} to={link.url} className="legal-link">
+            <Link
+              key={link.nameKey}
+              to={link.url}
+              className="footer__legal-link"
+            >
               {t(link.nameKey)}
             </Link>
           ))}
