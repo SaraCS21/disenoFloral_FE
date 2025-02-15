@@ -26,7 +26,7 @@ export default function OurWorks() {
 
   return (
     <div className="our-works">
-      <h1>{t("Algunos de nuestros trabajos")}</h1>
+      <h1>{t("home.some_our_works")}</h1>
 
       <div className="our-works__carousel">
         <button className="our-works__carousel--prev" onClick={goToPrevious}>
