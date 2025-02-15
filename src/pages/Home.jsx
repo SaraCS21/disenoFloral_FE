@@ -1,6 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import Navbar from "../components/navbarComponents/Navbar";
+import Carousel from "../components/homeComponents/Carousel";
 
 const Home = () => {
   const { t } = useTranslation();
@@ -8,8 +9,7 @@ const Home = () => {
   return (
     <div>
       <Navbar />
-      <h1>Home</h1>
-      <p>{t("example_text")}</p>
+      <Carousel />
     </div>
   );
 };

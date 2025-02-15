@@ -2,12 +2,12 @@ const languages = [
   {
     code: "es",
     nameKey: "language.spanish",
-    flag: "🇪🇸",
+    flag: "/assets/flags/es.svg",
   },
   {
     code: "en",
     nameKey: "language.english",
-    flag: "🇬🇧",
+    flag: "/assets/flags/en.svg",
   },
 ];
 

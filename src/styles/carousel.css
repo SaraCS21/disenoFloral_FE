@@ -1,0 +1,29 @@
+.carousel {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    white-space: nowrap;
+  }
+  
+  .carousel-track {
+    display: flex;
+    width: calc(220%); 
+    animation: scroll 40s linear infinite; 
+    transform: translateX(0);
+  }
+  
+  .carousel-track img {
+    width: calc(22% - 10px);
+    flex-shrink: 0;
+    margin-right: 10px; 
+  }
+  
+  @keyframes scroll {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(-110%); 
+    }
+  }
+  
