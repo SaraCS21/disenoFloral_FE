@@ -4,7 +4,8 @@ import adminCards from "../../constants/adminCards";
 import { getCurrentDate } from "../../utils/getCurrentDate";
 
 import { FaCalendarAlt } from "react-icons/fa";
-import { getEvents } from "../../services/eventService";
+import { getEventLocations } from "../../services/eventLocationService";
+import { formatDateTime } from "../../utils/formatDateTime";
 
 const DefaultContent = () => {
   const [events, setEvents] = useState([]);
@@ -12,11 +13,11 @@ const DefaultContent = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const allEvents = await getEvents();
+        const allEvents = await getEventLocations();
         const now = new Date();
 
         const upcomingEvents = allEvents.filter(
-          (event) => new Date(event.date) > now
+          (event) => new Date(event.startDate) > now
         );
 
         setEvents(upcomingEvents);
@@ -52,9 +53,12 @@ const DefaultContent = () => {
           ) : (
             events.map((event, index) => (
               <div className="admin-content__events__dates" key={index}>
-                <p>{event.name}</p>
+                <p>{event.event.name}</p>
                 <p>
-                  {event.date} - {event.time}
+                  {formatDateTime(event.startDate).date} -{" "}
+                  {formatDateTime(event.startDate).time} /{" "}
+                  {formatDateTime(event.endDate).date} -{" "}
+                  {formatDateTime(event.endDate).time}
                 </p>
               </div>
             ))
