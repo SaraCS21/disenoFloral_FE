@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import FormModal from "./FormModal";
 
 import { FaPlus } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
@@ -13,6 +14,12 @@ const AdminNavbar = ({ subNavbarName, subNavbarOption }) => {
   // TODO: consulta a la BBDD para obtener al usuario
   // TODO: modificar para que mira si el usuario tiene imagen, no si existe
   const [isUser, setIsUser] = useState(false);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleCreateClick = () => {
+    setIsModalOpen(true);
+  };
 
   return (
     <section className="admin-section">
@@ -50,12 +57,21 @@ const AdminNavbar = ({ subNavbarName, subNavbarOption }) => {
 
         {subNavbarOption !== "default" && (
           <div>
-            <button>
+            <button
+              className="admin-sub-navbar__create"
+              onClick={handleCreateClick}
+            >
               <FaPlus />
             </button>
           </div>
         )}
       </nav>
+
+      <FormModal
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+        subNavbarOption={subNavbarOption}
+      />
     </section>
   );
 };
