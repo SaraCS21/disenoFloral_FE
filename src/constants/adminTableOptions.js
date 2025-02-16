@@ -71,21 +71,57 @@ const adminTableOptions = {
       },
       {
         name: "Nombre",
-        width: "15%",
+        width: "25%",
         key: "name",
       },
       {
         name: "Descripción",
-        width: "25%",
+        width: "30%",
         key: "description",
       },
       {
         name: "Usuario",
-        width: "15%",
+        width: "25%",
+        key: "user.firstName | user.lastName",
       },
       {
-        name: "Dirección",
-        width: "25%",
+        name: "",
+        width: "12%",
+      },
+    ],
+  },
+
+  eventLocations: {
+    options: [
+      {
+        name: "ID",
+        width: "8%",
+        key: "id",
+      },
+      {
+        name: "Evento",
+        width: "15%",
+        key: "event.name",
+      },
+      {
+        name: "Usuario",
+        width: "15%",
+        key: "event.user.firstName | event.user.lastName",
+      },
+      {
+        name: "Localización",
+        width: "20%",
+        key: "location.address | location.city",
+      },
+      {
+        name: "Fecha inicio",
+        width: "15%",
+        key: "startDate",
+      },
+      {
+        name: "Fecha fin",
+        width: "15%",
+        key: "endDate",
       },
       {
         name: "",
@@ -108,18 +144,13 @@ const adminTableOptions = {
       },
       {
         name: "Usuario",
-        width: "20%",
-        key: "userId",
+        width: "25%",
+        key: "event.user.firstName | event.user.lastName",
       },
       {
         name: "Evento",
-        width: "20%",
-        key: "eventId",
-      },
-      {
-        name: "Fecha",
-        width: "10%",
-        key: "creationDate",
+        width: "25%",
+        key: "event.name",
       },
       {
         name: "Cantidad",

@@ -3,11 +3,13 @@ import { getUsers } from "../services/userService";
 import { getLocations } from "../services/locationService";
 import { getEvents } from "../services/eventService";
 import { getInvoices } from "../services/invoiceService";
+import { getEventLocations } from "../services/eventLocationService";
 
 const fetchDataFunctions = {
   users: getUsers,
   locations: getLocations,
   events: getEvents,
+  eventLocations: getEventLocations,
   invoices: getInvoices,
 };
 

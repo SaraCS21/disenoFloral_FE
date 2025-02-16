@@ -158,9 +158,11 @@
 }
 
 .admin-content__table__content__data {
-    width: 100%;
     display: flex;
-    align-items: center
+    align-items: center;
+    padding-bottom: 1.5rem;
+    
+    width: 100%;
 }
 
 .admin-content__table__head p,

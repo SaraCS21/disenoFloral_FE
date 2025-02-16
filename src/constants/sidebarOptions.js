@@ -1,4 +1,8 @@
-import { FaLocationDot, FaFileInvoiceDollar } from "react-icons/fa6";
+import {
+  FaLocationDot,
+  FaFileInvoiceDollar,
+  FaMapLocationDot,
+} from "react-icons/fa6";
 import { FaUsers, FaCalendarAlt } from "react-icons/fa";
 
 const sidebarOptions = [
@@ -16,6 +20,11 @@ const sidebarOptions = [
     nameKey: "sidenav.events",
     icon: <FaCalendarAlt />,
     option: "events",
+  },
+  {
+    nameKey: "sidenav.eventLocations",
+    icon: <FaMapLocationDot />,
+    option: "eventLocations",
   },
   {
     nameKey: "sidenav.invoices",

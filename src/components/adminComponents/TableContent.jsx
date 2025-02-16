@@ -1,7 +1,8 @@
+import useFetchData from "../../hooks/useFetchData";
 import adminTableOptions from "../../constants/adminTableOptions";
+import { renderValue } from "../../utils/tableContentFunctions";
 
 import { MdEdit, MdDelete } from "react-icons/md";
-import useFetchData from "../../hooks/useFetchData";
 
 const TableContent = ({ subNavbarOption }) => {
   const { data, loading, error } = useFetchData(subNavbarOption);
@@ -46,7 +47,7 @@ const TableContent = ({ subNavbarOption }) => {
                         </button>
                       </div>
                     ) : (
-                      <p>{row[option.key]}</p>
+                      renderValue(option, row)
                     )}
                   </div>
                 )
