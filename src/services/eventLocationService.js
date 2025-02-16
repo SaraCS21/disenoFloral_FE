@@ -45,7 +45,7 @@ export const updateEventLocation = async (id, eventData) => {
 
 export const deleteEventLocation = async (id) => {
   try {
-    await axios.delete(`${API_URL}${id}`);
+    await axios.delete(`${API_URL}/${id}`);
   } catch (error) {
     console.error("Error deleting event location:", error);
     throw error;

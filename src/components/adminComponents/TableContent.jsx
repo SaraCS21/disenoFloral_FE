@@ -1,11 +1,26 @@
-import useFetchData from "../../hooks/useFetchData";
-import adminTableOptions from "../../constants/adminTableOptions";
-import { renderValue } from "../../utils/tableContentFunctions";
-
+import { useEffect, useState } from "react";
 import { MdEdit, MdDelete } from "react-icons/md";
+import { renderValue } from "../../utils/tableContentFunctions";
+import adminTableOptions from "../../constants/adminTableOptions";
+
+import useFetchData from "../../hooks/useFetchData";
+import ActionModal from "./ActionModal";
 
 const TableContent = ({ subNavbarOption }) => {
-  const { data, loading, error } = useFetchData(subNavbarOption);
+  const { data, loading, error, deleteItem } = useFetchData(subNavbarOption);
+
+  const [localData, setLocalData] = useState(data);
+  const [itemToDelete, setItemToDelete] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+
+  const handleDeleteClick = (id) => {
+    setItemToDelete(id);
+    setShowModal(true);
+  };
+
+  useEffect(() => {
+    setLocalData(data);
+  }, [data]);
 
   if (loading) return <p>Cargando...</p>;
   if (error) return <p>Error al cargar datos</p>;
@@ -25,7 +40,7 @@ const TableContent = ({ subNavbarOption }) => {
       </div>
 
       <div className="admin-content__table__content">
-        {data.map((row, rowIndex) => (
+        {localData.map((row, rowIndex) => (
           <div key={rowIndex} className="admin-content__table__content__data">
             {subNavbarOption !== "default" &&
               adminTableOptions[subNavbarOption].options.map(
@@ -42,7 +57,10 @@ const TableContent = ({ subNavbarOption }) => {
                         <button className="admin-content__table__content__data--buttons__edit">
                           <MdEdit />
                         </button>
-                        <button className="admin-content__table__content__data--buttons__delete">
+                        <button
+                          className="admin-content__table__content__data--buttons__delete"
+                          onClick={() => handleDeleteClick(row.id)}
+                        >
                           <MdDelete />
                         </button>
                       </div>
@@ -55,6 +73,14 @@ const TableContent = ({ subNavbarOption }) => {
           </div>
         ))}
       </div>
+
+      <ActionModal
+        deleteItem={deleteItem}
+        itemToDelete={itemToDelete}
+        setShowModal={setShowModal}
+        setLocalData={setLocalData}
+        showModal={showModal}
+      />
     </section>
   );
 };

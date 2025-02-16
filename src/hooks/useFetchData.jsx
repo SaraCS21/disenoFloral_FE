@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
-import { getUsers } from "../services/userService";
-import { getLocations } from "../services/locationService";
-import { getEvents } from "../services/eventService";
-import { getInvoices } from "../services/invoiceService";
-import { getEventLocations } from "../services/eventLocationService";
+import { deleteUser, getUsers } from "../services/userService";
+import { deleteLocation, getLocations } from "../services/locationService";
+import { deleteEvent, getEvents } from "../services/eventService";
+import { deleteInvoice, getInvoices } from "../services/invoiceService";
+import {
+  deleteEventLocation,
+  getEventLocations,
+} from "../services/eventLocationService";
 
 const fetchDataFunctions = {
   users: getUsers,
@@ -11,6 +14,14 @@ const fetchDataFunctions = {
   events: getEvents,
   eventLocations: getEventLocations,
   invoices: getInvoices,
+};
+
+const deleteFunctions = {
+  users: deleteUser,
+  locations: deleteLocation,
+  events: deleteEvent,
+  eventLocations: deleteEventLocation,
+  invoices: deleteInvoice,
 };
 
 const useFetchData = (subNavbarOption) => {
@@ -39,7 +50,25 @@ const useFetchData = (subNavbarOption) => {
     fetchData();
   }, [subNavbarOption]);
 
-  return { data, loading, error };
+  const deleteItem = async (id) => {
+    try {
+      const deleteFunction = deleteFunctions[subNavbarOption];
+
+      if (deleteFunction) {
+        const response = await deleteFunction(id);
+
+        if (response.ok) {
+          setData((prevData) => prevData.filter((item) => item.id !== id));
+        } else {
+          console.error("Error deleting item");
+        }
+      }
+    } catch (error) {
+      console.error("Error in delete request:", error);
+    }
+  };
+
+  return { data, loading, error, deleteItem };
 };
 
 export default useFetchData;
