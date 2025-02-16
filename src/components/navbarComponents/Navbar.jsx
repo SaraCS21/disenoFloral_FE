@@ -4,12 +4,13 @@ import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "./LanguageSwitcher";
 import navbarOptions from "../../constants/navbarOptions";
 import "../../styles/navbar.css";
-
+import { useModal } from "../../contexts/ModalContext";
 import { FiUser, FiMenu, FiX } from "react-icons/fi";
 
 const Navbar = () => {
   const { t } = useTranslation();
   const [menuOpen, setMenuOpen] = useState(false);
+  const { openModal } = useModal();
 
   return (
     <nav className="navbar">
@@ -48,8 +49,14 @@ const Navbar = () => {
           ))}
 
           <li className="navbar__menu-item navbar__menu-item--mobile">
-            <Link to="/login" onClick={() => setMenuOpen(false)}>
-              <FiUser /> {t("login")}
+            <Link
+              to=""
+              onClick={() => {
+                setMenuOpen(false);
+                openModal();
+              }}
+            >
+              <FiUser /> {t("buttons.login")}
             </Link>
           </li>
         </ul>
@@ -58,7 +65,7 @@ const Navbar = () => {
       </div>
 
       <div className="navbar__right-section">
-        <button className="navbar__login-button">
+        <button className="navbar__login-button" onClick={openModal}>
           <FiUser />
         </button>
       </div>

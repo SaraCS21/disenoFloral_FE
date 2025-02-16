@@ -37,5 +37,16 @@
     "terms": "Términos y condiciones"
   },
 
+  "login": {
+    "title": "Iniciar sesión",
+    "email_label": "Correo",
+    "email_placeholder": "Escribe tu correo...",
+    "password_label": "Contraseña",
+    "password_placeholder": "Escribe tu contraseña...",
+    "send": "Enviar",
+    "without_account": "¿No tienes cuenta todavía? ",
+    "register": "Regístrate"
+  },
+
   "example_text": "Esto es un texto de ejemplo"
 }
