@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 
 import "../styles/header.css";
 
-const Header = () => {
+const Header = ({ translation }) => {
   const { t } = useTranslation();
 
   return (
@@ -15,8 +15,8 @@ const Header = () => {
         }}
       ></div>
       <div className="header-info">
-        <h1>{t("contact.header")}</h1>
-        <p>{t("contact.text")}</p>
+        <h1>{t(`${translation}.header`)}</h1>
+        <p>{t(`${translation}.text`)}</p>
       </div>
     </>
   );

@@ -45,6 +45,23 @@
     "text": "Do you have any questions or just want to say hello? We’re here to help. You can send us a message through the form, email us, call us, or reach out on our social media. We’ll get back to you as soon as possible!"
   },  
 
+  "services": {
+    "header": "Our Services",
+    "text": "In our florist shop, we create unique floral solutions for every occasion. From custom bouquets to event decorations, we ensure every detail is perfect. Let us help make your most special moments bloom with elegance and style.",
+    "budquets": "Custom Flower Bouquets",
+    "budquets_text": "We offer bouquets for any occasion, such as weddings, birthdays, anniversaries, or simply to brighten someone's day.",
+    "events": "Floral Decoration for Events",
+    "events_text": "We take care of floral decoration for weddings, parties, corporate events, and more. We create unique atmospheres with fresh and elegant flowers.",
+    "offices": "Floral Arrangements for Businesses",
+    "offices_text": "We design floral arrangements for offices, businesses, or stores, creating a welcoming and professional environment.",
+    "wedding": "Events and Weddings",
+    "wedding_text": "We manage all floral aspects of your event or wedding, from the bride's bouquet to venue decoration.",
+    "special": "Floristry for Special Occasions",
+    "special_text": "We offer a wide range of options for special occasions like Valentine's Day, Mother's Day, Christmas, and more.",
+    "advice": "Floral Selection Advice",
+    "advice_text": "We offer advice to help you choose the perfect flowers for your event or bouquet, considering your tastes, budget, and desired style."
+  },
+
   "footer": {
     "privacy": "Privacy policies",
     "terms": "Terms and conditions"

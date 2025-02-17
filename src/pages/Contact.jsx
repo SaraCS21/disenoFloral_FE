@@ -11,7 +11,7 @@ const Contact = () => {
   return (
     <div>
       <Navbar />
-      <Header />
+      <Header translation="contact" />
 
       <ContactData />
       <ContactForm />

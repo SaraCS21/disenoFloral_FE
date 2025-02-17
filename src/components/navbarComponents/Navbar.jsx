@@ -49,7 +49,7 @@ const Navbar = () => {
 
           <li className="navbar__menu-item navbar__menu-item--mobile">
             <Link to="/login" onClick={() => setMenuOpen(false)}>
-              <FiUser /> {t("login")}
+              <FiUser />
             </Link>
           </li>
         </ul>
