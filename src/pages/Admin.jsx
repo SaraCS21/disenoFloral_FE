@@ -42,6 +42,7 @@ const Admin = () => {
             subNavbarOption={subNavbarOption}
             localData={localData}
             setLocalData={setLocalData}
+            addNewItem={addNewItem}
           />
         )}
       </div>

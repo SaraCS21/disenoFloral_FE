@@ -5,16 +5,24 @@ import adminTableOptions from "../../constants/adminTableOptions";
 
 import useFetchData from "../../hooks/useFetchData";
 import ActionModal from "./ActionModal";
+import FormModal from "./FormModal";
 
 const TableContent = ({ subNavbarOption, localData, setLocalData }) => {
   const { loading, error, deleteItem } = useFetchData(subNavbarOption);
 
   const [itemToDelete, setItemToDelete] = useState(null);
-  const [showModal, setShowModal] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showUpdateModal, setShowUpdateModal] = useState(false);
+  const [currentItem, setCurrentItem] = useState(null);
 
   const handleDeleteClick = (id) => {
     setItemToDelete(id);
-    setShowModal(true);
+    setShowDeleteModal(true);
+  };
+
+  const handleUpdateClick = (id) => {
+    setCurrentItem(id);
+    setShowUpdateModal(true);
   };
 
   if (loading) return <p>Cargando...</p>;
@@ -49,7 +57,10 @@ const TableContent = ({ subNavbarOption, localData, setLocalData }) => {
                   >
                     {option.name === "" ? (
                       <div className="admin-content__table__content__data--buttons">
-                        <button className="admin-content__table__content__data--buttons__edit">
+                        <button
+                          className="admin-content__table__content__data--buttons__edit"
+                          onClick={() => handleUpdateClick(row)}
+                        >
                           <MdEdit />
                         </button>
                         <button
@@ -72,9 +83,24 @@ const TableContent = ({ subNavbarOption, localData, setLocalData }) => {
       <ActionModal
         deleteItem={deleteItem}
         itemToDelete={itemToDelete}
-        setShowModal={setShowModal}
+        setShowModal={setShowDeleteModal}
         setLocalData={setLocalData}
-        showModal={showModal}
+        showModal={showDeleteModal}
+      />
+
+      <FormModal
+        isModalOpen={showUpdateModal}
+        setIsModalOpen={setShowUpdateModal}
+        subNavbarOption={subNavbarOption}
+        currentItem={currentItem}
+        updateItem={(updatedItem) =>
+          setLocalData((prevData) =>
+            prevData.map((item) =>
+              item.id === updatedItem.id ? updatedItem : item
+            )
+          )
+        }
+        isUpdating
       />
     </section>
   );

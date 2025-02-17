@@ -123,21 +123,18 @@ const useFetchData = (subNavbarOption) => {
         const createFunction = createFunctions[subNavbarOption];
         if (createFunction) {
           response = await createFunction(formData);
-          newItem = response; // Ahora directamente tomamos la respuesta como el nuevo objeto
+          newItem = response;
         }
       }
 
-      console.log("✅ Respuesta de la API:", response);
-
       if (response && response.id) {
-        // Validamos que la respuesta tiene un ID
         setData((prevData) => {
           if (isUpdating) {
             return prevData.map((item) =>
               item.id === currentItem.id ? newItem : item
             );
           } else {
-            return [...prevData, newItem]; // Agregamos el nuevo item
+            return [...prevData, newItem];
           }
         });
 
