@@ -33,6 +33,15 @@
     "some_our_works": "Alguno de nuestros trabajos"
   },
 
+  "contact": {
+    "name": "Nombre",
+    "surname": "Apellidos",
+    "email": "Correo",
+    "message": "Mensaje",
+    "send_message": "Enviar",
+    "form_sent": "¡Formulario enviado correctamente!"
+  },  
+
   "footer": {
     "privacy": "Política de privacidad",
     "terms": "Términos y condiciones"

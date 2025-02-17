@@ -1,16 +1,17 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
 import Navbar from "../components/navbarComponents/Navbar";
 import Footer from "../components/footerComponents/Footer";
+import ContactForm from "../components/contactComponents/ContactForm";
+
+import "../styles/contact.css";
 
 const Contact = () => {
-  const { t } = useTranslation();
-
   return (
     <div>
       <Navbar />
-      <h1>Contacto</h1>
-      <p>{t("example_text")}</p>
+
+      <ContactForm />
+
       <Footer />
     </div>
   );
