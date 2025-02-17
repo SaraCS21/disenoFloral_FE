@@ -163,3 +163,34 @@
 .contact-data__info__social-media a svg {
   border: 0;
 }
+
+@media (max-width: 767px) {
+  .contact-data {
+    width: 90%;
+    flex-direction: column;
+  }
+
+  .contact-data section {
+    width: 90%;
+    margin-bottom: 0;
+  }
+
+  .contact-section {
+    width: 90%;
+  }
+
+  .contact-form__title {
+    width: 100%;
+    text-align: center;
+  }
+
+  .contact-form__fields {
+    width: 90%;
+    flex-direction: column;
+  }
+
+  .contact-form__button {
+    width: 100%;
+    justify-content: center
+  }
+}

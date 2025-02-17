@@ -62,3 +62,29 @@
     font-size: 1.2rem;
     line-height: 1.8rem;
 }
+
+@media (max-width: 767px) {
+    .services-section__service {
+        width: 90%;
+        flex-direction: column
+    }
+
+    .services-section__service__info,
+    .services-section__service__image {
+        width: 90%;
+    }
+
+    .services-section__service__info h1 {
+        width: 100%;
+        
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    .services-section__service__info p {
+        width: 100%;
+
+        text-align: center;
+        font-size: 1.2rem;
+    }
+}

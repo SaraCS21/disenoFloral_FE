@@ -49,3 +49,26 @@
     font-size: 1.3rem;
     line-height: 2rem;
 }
+
+@media (max-width: 767px) {
+    .header-image::after {
+        background-color: rgba(0, 0, 0, 0.689);
+    }
+
+    .header-info {
+        padding: 1rem 2rem;
+    }
+
+    .header-info h1 {
+        width: 100%;
+        padding-top: 0;
+
+        font-size: 2.7rem;
+    }
+    
+    .header-info p {
+        width: 100%;
+        font-size:  1.1rem;
+        line-height: 2rem;
+    }
+}
