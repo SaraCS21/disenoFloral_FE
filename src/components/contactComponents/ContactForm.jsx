@@ -36,65 +36,69 @@ const ContactForm = () => {
   };
 
   return (
-    <form
-      action={process.env.REACT_APP_EMAILJS_URL}
-      method="POST"
-      onSubmit={handleSubmit}
-      className="contact-form"
-    >
-      <div className="contact-form__fields">
-        <div className="contact-form__field">
-          <label>{t("contact.name")}:</label>
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
+    <section className="contact-section">
+      <h2 className="contact-form__title">{t("contact.send_email")}</h2>
+
+      <form
+        action={process.env.REACT_APP_EMAILJS_URL}
+        method="POST"
+        onSubmit={handleSubmit}
+        className="contact-form"
+      >
+        <div className="contact-form__fields">
+          <div className="contact-form__field">
+            <label>{t("contact.name")}:</label>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="contact-form__field">
+            <label>{t("contact.surname")}:</label>
+            <input
+              type="text"
+              name="surname"
+              value={formData.surname}
+              onChange={handleChange}
+              required
+            />
+          </div>
         </div>
 
-        <div className="contact-form__field">
-          <label>{t("contact.surname")}:</label>
-          <input
-            type="text"
-            name="surname"
-            value={formData.surname}
-            onChange={handleChange}
-            required
-          />
+        <div className="contact-form__fields">
+          <div className="contact-form__field">
+            <label>{t("contact.email")}:</label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
         </div>
-      </div>
 
-      <div className="contact-form__fields">
-        <div className="contact-form__field">
-          <label>{t("contact.email")}:</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
+        <div className="contact-form__fields">
+          <div className="contact-form__field">
+            <label>{t("contact.message")}:</label>
+            <textarea
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              required
+            />
+          </div>
         </div>
-      </div>
 
-      <div className="contact-form__fields">
-        <div className="contact-form__field">
-          <label>{t("contact.message")}:</label>
-          <textarea
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            required
-          />
+        <div className="contact-form__button">
+          <button type="submit">{t("contact.send_message")}</button>
         </div>
-      </div>
-
-      <div className="contact-form__button">
-        <button type="submit">{t("contact.send_message")}</button>
-      </div>
-    </form>
+      </form>
+    </section>
   );
 };
 

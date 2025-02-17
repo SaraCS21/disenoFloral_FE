@@ -34,12 +34,15 @@
   },
 
   "contact": {
+    "send_email": "Send us an email",
     "name": "Name",
     "surname": "Surname",
     "email": "Email",
     "message": "Message",
     "send_message": "Send",
-    "form_sent": "Form submitted successfully!"
+    "form_sent": "Form submitted successfully!",
+    "header": "Contact us",
+    "text": "Do you have any questions or just want to say hello? We’re here to help. You can send us a message through the form, email us, call us, or reach out on our social media. We’ll get back to you as soon as possible!"
   },  
 
   "footer": {

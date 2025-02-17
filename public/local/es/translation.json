@@ -34,12 +34,15 @@
   },
 
   "contact": {
+    "send_email": "Envíanos un correo",
     "name": "Nombre",
     "surname": "Apellidos",
     "email": "Correo",
     "message": "Mensaje",
     "send_message": "Enviar",
-    "form_sent": "¡Formulario enviado correctamente!"
+    "form_sent": "¡Formulario enviado correctamente!",
+    "header": "Contacta con nosotros",
+    "text": "¿Tienes alguna consulta o simplemente quieres saludarnos? Estamos aquí para ayudarte. Puedes enviarnos un mensaje a través del formulario, escribirnos un correo, llamarnos o encontrarnos en nuestras redes sociales. ¡Te responderemos lo antes posible!"
   },  
 
   "footer": {
