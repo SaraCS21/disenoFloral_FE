@@ -19,6 +19,7 @@
     "locations": "Localizaciones",
     "users": "Usuarios",
     "events": "Eventos",
+    "eventLocations": "Localización eventos",
     "invoices": "Facturas"
   },
 
@@ -30,6 +31,35 @@
     "weddings": "Bodas",
     "baskets": "Cestas",
     "some_our_works": "Alguno de nuestros trabajos"
+  },
+
+  "contact": {
+    "send_email": "Envíanos un correo",
+    "name": "Nombre",
+    "surname": "Apellidos",
+    "email": "Correo",
+    "message": "Mensaje",
+    "send_message": "Enviar",
+    "form_sent": "¡Formulario enviado correctamente!",
+    "header": "Contacta con nosotros",
+    "text": "¿Tienes alguna consulta o simplemente quieres saludarnos? Estamos aquí para ayudarte. Puedes enviarnos un mensaje a través del formulario, escribirnos un correo, llamarnos o encontrarnos en nuestras redes sociales. ¡Te responderemos lo antes posible!"
+  },  
+
+  "services": {
+    "header": "Nuestros servicios",
+    "text": "En nuestra floristería creamos soluciones florales únicas para cada ocasión. Desde ramos personalizados hasta la decoración de eventos, nos aseguramos de que cada detalle sea perfecto. Déjanos ayudarte a hacer florecer tus momentos más especiales con elegancia y estilo.",
+    "budquets": "Ramos de flores personalizados",
+    "budquets_text": "Ofrecemos ramos para cualquier ocasión, como bodas, cumpleaños, aniversarios, o simplemente para alegrar el día de alguien.",
+    "events": "Decoración floral para eventos",
+    "events_text": "Nos encargamos de la decoración floral para bodas, fiestas, eventos corporativos, y más. Creamos ambientes únicos con flores frescas y elegantes.",
+    "offices": "Arreglos florales para empresas",
+    "offices_text": "Diseñamos arreglos florales para oficinas, empresas o tiendas, creando un ambiente acogedor y profesional.",
+    "wedding": "Eventos y bodas",
+    "wedding_text": "Gestionamos todos los aspectos florales de tu evento o boda, desde el ramo de la novia hasta la decoración del lugar.",
+    "special": "Floristería para ocasiones especiales",
+    "special_text": "Contamos con una amplia variedad de opciones para ocasiones especiales como San Valentín, Día de la Madre, Navidad, entre otros.",
+    "advice": "Asesoría en selección floral",
+    "advice_text": "Ofrecemos asesoría para ayudarte a elegir las flores perfectas para tu evento o ramo, teniendo en cuenta tus gustos, el presupuesto y el estilo deseado."
   },
 
   "footer": {

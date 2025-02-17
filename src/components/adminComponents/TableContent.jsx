@@ -1,39 +1,32 @@
-import { useEffect, useState } from "react";
-
-import { getUsers } from "../../services/userService";
-import { getLocations } from "../../services/locationService";
-import { getEvents } from "../../services/eventService";
-import { getInvoices } from "../../services/invoiceService";
+import { useState } from "react";
+import { MdEdit, MdDelete } from "react-icons/md";
+import { renderValue } from "../../utils/tableContentFunctions";
 import adminTableOptions from "../../constants/adminTableOptions";
 
-import { MdEdit, MdDelete } from "react-icons/md";
+import useFetchData from "../../hooks/useFetchData";
+import ActionModal from "./ActionModal";
+import FormModal from "./FormModal";
 
-const TableContent = ({ subNavbarOption }) => {
-  const [data, setData] = useState([]);
+const TableContent = ({ subNavbarOption, localData, setLocalData }) => {
+  const { loading, error, deleteItem } = useFetchData(subNavbarOption);
 
-  const fetchDataFunctions = {
-    users: getUsers,
-    locations: getLocations,
-    events: getEvents,
-    invoices: getInvoices,
+  const [itemToDelete, setItemToDelete] = useState(null);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showUpdateModal, setShowUpdateModal] = useState(false);
+  const [currentItem, setCurrentItem] = useState(null);
+
+  const handleDeleteClick = (id) => {
+    setItemToDelete(id);
+    setShowDeleteModal(true);
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const fetchFunction = fetchDataFunctions[subNavbarOption];
+  const handleUpdateClick = (id) => {
+    setCurrentItem(id);
+    setShowUpdateModal(true);
+  };
 
-      if (fetchFunction) {
-        try {
-          const dataFetched = await fetchFunction();
-          setData(dataFetched);
-        } catch (error) {
-          console.error(`Error fetching ${subNavbarOption}:`, error);
-        }
-      }
-    };
-
-    fetchData();
-  }, [subNavbarOption]);
+  if (loading) return <p>Cargando...</p>;
+  if (error) return <p>Error al cargar datos</p>;
 
   return (
     <section className="admin-content__table">
@@ -50,7 +43,7 @@ const TableContent = ({ subNavbarOption }) => {
       </div>
 
       <div className="admin-content__table__content">
-        {data.map((row, rowIndex) => (
+        {localData.map((row, rowIndex) => (
           <div key={rowIndex} className="admin-content__table__content__data">
             {subNavbarOption !== "default" &&
               adminTableOptions[subNavbarOption].options.map(
@@ -64,15 +57,21 @@ const TableContent = ({ subNavbarOption }) => {
                   >
                     {option.name === "" ? (
                       <div className="admin-content__table__content__data--buttons">
-                        <button className="admin-content__table__content__data--buttons__edit">
+                        <button
+                          className="admin-content__table__content__data--buttons__edit"
+                          onClick={() => handleUpdateClick(row)}
+                        >
                           <MdEdit />
                         </button>
-                        <button className="admin-content__table__content__data--buttons__delete">
+                        <button
+                          className="admin-content__table__content__data--buttons__delete"
+                          onClick={() => handleDeleteClick(row.id)}
+                        >
                           <MdDelete />
                         </button>
                       </div>
                     ) : (
-                      <p>{row[option.key]}</p>
+                      renderValue(option, row)
                     )}
                   </div>
                 )
@@ -80,6 +79,29 @@ const TableContent = ({ subNavbarOption }) => {
           </div>
         ))}
       </div>
+
+      <ActionModal
+        deleteItem={deleteItem}
+        itemToDelete={itemToDelete}
+        setShowModal={setShowDeleteModal}
+        setLocalData={setLocalData}
+        showModal={showDeleteModal}
+      />
+
+      <FormModal
+        isModalOpen={showUpdateModal}
+        setIsModalOpen={setShowUpdateModal}
+        subNavbarOption={subNavbarOption}
+        currentItem={currentItem}
+        updateItem={(updatedItem) =>
+          setLocalData((prevData) =>
+            prevData.map((item) =>
+              item.id === updatedItem.id ? updatedItem : item
+            )
+          )
+        }
+        isUpdating
+      />
     </section>
   );
 };

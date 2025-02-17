@@ -35,7 +35,7 @@ export const createLocation = async (locationData) => {
 
 export const updateLocation = async (id, locationData) => {
   try {
-    const response = await axios.put(`${API_URL}${id}`, locationData);
+    const response = await axios.put(`${API_URL}/${id}`, locationData);
     return response.data;
   } catch (error) {
     console.error("Error updating location:", error);
@@ -45,7 +45,7 @@ export const updateLocation = async (id, locationData) => {
 
 export const deleteLocation = async (id) => {
   try {
-    await axios.delete(`${API_URL}${id}`);
+    await axios.delete(`${API_URL}/${id}`);
   } catch (error) {
     console.error("Error deleting location:", error);
     throw error;

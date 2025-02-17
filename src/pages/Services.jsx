@@ -1,16 +1,17 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
 import Navbar from "../components/navbarComponents/Navbar";
 import Footer from "../components/footerComponents/Footer";
+import Header from "../components/Header";
+import ServicesData from "../components/servicesComponents/ServicesData";
 
 const Services = () => {
-  const { t } = useTranslation();
-
   return (
     <div>
       <Navbar />
-      <h1>Servicios</h1>
-      <p>{t("example_text")}</p>
+      <Header translation="services" />
+
+      <ServicesData />
+
       <Footer />
     </div>
   );
