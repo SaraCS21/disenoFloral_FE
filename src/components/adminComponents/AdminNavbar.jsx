@@ -8,7 +8,7 @@ import { FaUserLarge } from "react-icons/fa6";
 
 import "../../styles/adminNavbar.css";
 
-const AdminNavbar = ({ subNavbarName, subNavbarOption }) => {
+const AdminNavbar = ({ subNavbarName, subNavbarOption, addNewItem }) => {
   const { t } = useTranslation();
 
   // TODO: consulta a la BBDD para obtener al usuario
@@ -71,6 +71,7 @@ const AdminNavbar = ({ subNavbarName, subNavbarOption }) => {
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
         subNavbarOption={subNavbarOption}
+        addNewItem={addNewItem}
       />
     </section>
   );

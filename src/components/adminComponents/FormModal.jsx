@@ -4,7 +4,12 @@ import FieldsModal from "./FieldsModal";
 
 import "../../styles/formModal.css";
 
-const FormModal = ({ isModalOpen, setIsModalOpen, subNavbarOption }) => {
+const FormModal = ({
+  isModalOpen,
+  setIsModalOpen,
+  subNavbarOption,
+  addNewItem,
+}) => {
   const { handleCreateOrUpdate } = useFetchData(subNavbarOption);
   const {
     register,
@@ -16,8 +21,15 @@ const FormModal = ({ isModalOpen, setIsModalOpen, subNavbarOption }) => {
     setIsModalOpen(false);
   };
 
-  const onSubmit = (data) => {
-    handleCreateOrUpdate(data);
+  const onSubmit = async (data) => {
+    const newItem = await handleCreateOrUpdate(data);
+
+    if (newItem) {
+      addNewItem(newItem);
+    } else {
+      console.error("No se pudo agregar el nuevo ítem.");
+    }
+
     handleCloseModal();
   };
 

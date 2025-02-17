@@ -66,8 +66,8 @@ const useFetchData = (subNavbarOption) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [currentItem, setCurrentItem] = useState(null); // Para manejar el item a editar
-  const [isUpdating, setIsUpdating] = useState(false); // Para saber si estamos actualizando
+  const [currentItem, setCurrentItem] = useState(null);
+  const [isUpdating, setIsUpdating] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -111,39 +111,46 @@ const useFetchData = (subNavbarOption) => {
   const handleCreateOrUpdate = async (formData) => {
     try {
       let response;
+      let newItem = null;
 
       if (isUpdating && currentItem) {
-        // Si estamos actualizando, usamos la función de update
         const updateFunction = updateFunctions[subNavbarOption];
         if (updateFunction) {
-          response = await updateFunction(currentItem.id, formData); // Enviamos el id del item a actualizar
+          response = await updateFunction(currentItem.id, formData);
+          newItem = { ...currentItem, ...formData };
         }
       } else {
-        // Si no estamos actualizando, usamos la función de create
         const createFunction = createFunctions[subNavbarOption];
         if (createFunction) {
-          response = await createFunction(formData); // Enviamos los datos para crear un nuevo item
+          response = await createFunction(formData);
+          newItem = response; // Ahora directamente tomamos la respuesta como el nuevo objeto
         }
       }
 
-      if (response.ok) {
-        // Actualizamos la lista de datos con el nuevo item creado o el item actualizado
+      console.log("✅ Respuesta de la API:", response);
+
+      if (response && response.id) {
+        // Validamos que la respuesta tiene un ID
         setData((prevData) => {
           if (isUpdating) {
             return prevData.map((item) =>
-              item.id === currentItem.id ? { ...item, ...formData } : item
+              item.id === currentItem.id ? newItem : item
             );
           } else {
-            return [...prevData, response.data]; // Suponiendo que la respuesta tenga el nuevo item
+            return [...prevData, newItem]; // Agregamos el nuevo item
           }
         });
-        setIsUpdating(false); // Resetear la actualización
-        setCurrentItem(null); // Resetear el item actual
+
+        setIsUpdating(false);
+        setCurrentItem(null);
+        return newItem;
       } else {
-        console.error("Error handling create or update");
+        console.error("❌ Error en la solicitud: Respuesta inválida", response);
+        return null;
       }
     } catch (error) {
-      console.error("Error in create or update request:", error);
+      console.error("❌ Error en createOrUpdate:", error);
+      return null;
     }
   };
 

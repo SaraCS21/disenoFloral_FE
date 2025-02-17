@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { MdEdit, MdDelete } from "react-icons/md";
 import { renderValue } from "../../utils/tableContentFunctions";
 import adminTableOptions from "../../constants/adminTableOptions";
@@ -6,10 +6,9 @@ import adminTableOptions from "../../constants/adminTableOptions";
 import useFetchData from "../../hooks/useFetchData";
 import ActionModal from "./ActionModal";
 
-const TableContent = ({ subNavbarOption }) => {
-  const { data, loading, error, deleteItem } = useFetchData(subNavbarOption);
+const TableContent = ({ subNavbarOption, localData, setLocalData }) => {
+  const { loading, error, deleteItem } = useFetchData(subNavbarOption);
 
-  const [localData, setLocalData] = useState(data);
   const [itemToDelete, setItemToDelete] = useState(null);
   const [showModal, setShowModal] = useState(false);
 
@@ -17,10 +16,6 @@ const TableContent = ({ subNavbarOption }) => {
     setItemToDelete(id);
     setShowModal(true);
   };
-
-  useEffect(() => {
-    setLocalData(data);
-  }, [data]);
 
   if (loading) return <p>Cargando...</p>;
   if (error) return <p>Error al cargar datos</p>;
