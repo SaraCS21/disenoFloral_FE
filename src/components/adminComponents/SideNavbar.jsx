@@ -1,17 +1,24 @@
-import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import sidebarOptions from "../../constants/sidebarOptions";
-
-import "../../styles/sideNavbar.css";
+import useGetUserData from "../../hooks/useGetUserData";
 
 import { FaUserLarge } from "react-icons/fa6";
+import "../../styles/sideNavbar.css";
+import { useMemo } from "react";
 
 const SideNavBar = ({ setSubNavbarName, setSubNavbarOption }) => {
-  // TODO: consulta a la BBDD para obtener al usuario
-  // TODO: modificar para que mira si el usuario tiene imagen, no si existe
-  const [isUser, setIsUser] = useState(false);
-
   const { t } = useTranslation();
+  const userData = useGetUserData();
+
+  // Filtrar las opciones según el rol del usuario
+  const filteredOptions = useMemo(() => {
+    if (userData?.role === "Professional") {
+      return sidebarOptions.filter((option) =>
+        ["events", "eventLocations", "invoices"].includes(option.option)
+      );
+    }
+    return sidebarOptions;
+  }, [userData]);
 
   const handleOptionClick = (optionName, option) => {
     setSubNavbarName(optionName);
@@ -25,21 +32,23 @@ const SideNavBar = ({ setSubNavbarName, setSubNavbarOption }) => {
     >
       <div className="navbar-side__user">
         <div className="navbar-side__user__image">
-          {!isUser ? (
-            <FaUserLarge />
-          ) : (
-            <img src={`${isUser}`} alt="user image" />
-          )}
+          {userData ? <FaUserLarge /> : <img src="" alt="user image" />}
         </div>
 
         <div className="navbar-side__user__data">
-          <p className="navbar-side__user__data--name">User name</p>
-          <p className="navbar-side__user__data--role">Rol</p>
+          <p className="navbar-side__user__data--name">
+            {userData
+              ? `${userData.firstName} ${userData.lastName}`
+              : "User name"}
+          </p>
+          <p className="navbar-side__user__data--role">
+            {userData ? userData.role : "User role"}
+          </p>
         </div>
       </div>
 
       <ul className="navbar-side__options">
-        {sidebarOptions.map((option, index) => (
+        {filteredOptions.map((option, index) => (
           <li
             key={index}
             onClick={() => handleOptionClick(option.nameKey, option.option)}

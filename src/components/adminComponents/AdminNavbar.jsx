@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import FormModal from "./FormModal";
+import useGetUserData from "../../hooks/useGetUserData";
 
 import { FaPlus } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
@@ -11,11 +12,8 @@ import "../../styles/adminNavbar.css";
 const AdminNavbar = ({ subNavbarName, subNavbarOption, addNewItem }) => {
   const { t } = useTranslation();
 
-  // TODO: consulta a la BBDD para obtener al usuario
-  // TODO: modificar para que mira si el usuario tiene imagen, no si existe
-  const [isUser, setIsUser] = useState(false);
-
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const userData = useGetUserData();
 
   const handleCreateClick = () => {
     setIsModalOpen(true);
@@ -34,15 +32,15 @@ const AdminNavbar = ({ subNavbarName, subNavbarOption, addNewItem }) => {
 
         <div className="admin-navbar__user">
           <div className="admin-navbar__user__image">
-            {!isUser ? (
-              <FaUserLarge />
-            ) : (
-              <img src={`${isUser}`} alt="user image" />
-            )}
+            {userData ? <FaUserLarge /> : <img src="" alt="user image" />}
           </div>
 
           <div className="admin-navbar__user__name">
-            <p>User name</p>
+            <p>
+              {userData
+                ? `${userData.firstName} ${userData.lastName}`
+                : "User name"}
+            </p>
             <IoIosArrowDown />
           </div>
         </div>

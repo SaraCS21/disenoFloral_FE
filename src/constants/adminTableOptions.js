@@ -123,6 +123,22 @@ const adminTableOptions = {
         },
       },
       {
+        name: " ",
+        key: "",
+        form: {
+          id: "password",
+          label: "Contraseña",
+          type: "password",
+          validation: {
+            required: "La contraseña es obligatoria",
+            minLength: {
+              value: 3,
+              message: "La contraseña debe tener al menos 3 caracteres",
+            },
+          },
+        },
+      },
+      {
         name: "Rol",
         width: "15%",
         key: "role",
@@ -130,7 +146,7 @@ const adminTableOptions = {
           id: "role",
           label: "Rol",
           type: "select",
-          options: ["Administrador", "Profesional"],
+          options: ["Administrator", "Professional"],
           validation: {
             required: "El rol es obligatorio",
           },
@@ -281,7 +297,7 @@ const adminTableOptions = {
         },
       },
       {
-        name: "",
+        name: " ",
         width: "",
         key: "",
         form: {
@@ -294,7 +310,7 @@ const adminTableOptions = {
         },
       },
       {
-        name: "",
+        name: " ",
         width: "",
         key: "",
         form: {

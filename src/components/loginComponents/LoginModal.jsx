@@ -8,6 +8,7 @@ import { useModal } from "../../contexts/ModalContext";
 
 import { IoMdClose } from "react-icons/io";
 import "../../styles/loginModal.css";
+import { getUserByEmail } from "../../services/userService";
 
 const LoginModal = () => {
   const { t } = useTranslation();
@@ -25,6 +26,10 @@ const LoginModal = () => {
     try {
       const response = await login(email, password);
       loginAuth(response.user);
+
+      const userResponse = await getUserByEmail(email);
+      localStorage.setItem("userId", JSON.stringify(userResponse.id));
+
       closeModal();
       navigate("/admin");
     } catch (error) {

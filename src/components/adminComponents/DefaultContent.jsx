@@ -6,9 +6,11 @@ import { getCurrentDate } from "../../utils/getCurrentDate";
 import { FaCalendarAlt } from "react-icons/fa";
 import { getEventLocations } from "../../services/eventLocationService";
 import { formatDateTime } from "../../utils/formatDateTime";
+import useGetUserData from "../../hooks/useGetUserData";
 
 const DefaultContent = () => {
   const [events, setEvents] = useState([]);
+  const userData = useGetUserData();
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -16,9 +18,15 @@ const DefaultContent = () => {
         const allEvents = await getEventLocations();
         const now = new Date();
 
-        const upcomingEvents = allEvents.filter(
+        let upcomingEvents = allEvents.filter(
           (event) => new Date(event.startDate) > now
         );
+
+        if (userData?.role === "Professional") {
+          upcomingEvents = upcomingEvents.filter(
+            (event) => event?.user?.id === userData.id
+          );
+        }
 
         setEvents(upcomingEvents);
       } catch (error) {
@@ -26,8 +34,8 @@ const DefaultContent = () => {
       }
     };
 
-    fetchEvents();
-  }, []);
+    if (userData) fetchEvents();
+  }, [userData]);
 
   return (
     <>

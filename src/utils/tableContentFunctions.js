@@ -28,7 +28,9 @@ export const renderValue = (option, row) => {
     } else {
       return option.key
         .split("|")
-        .map((key) => getValue(key.trim()))
+        .map((key) => {
+          return getValue(key.trim(), row);
+        })
         .join(" ");
     }
   } else if (option.key) {

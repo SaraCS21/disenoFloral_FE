@@ -15,7 +15,7 @@ export const getEvents = async () => {
 
 export const getEventById = async (id) => {
   try {
-    const response = await api.get(`${API_URL}${id}`);
+    const response = await api.get(`${API_URL}/${id}`);
     return response.data;
   } catch (error) {
     console.error("Error fetching event by id:", error);

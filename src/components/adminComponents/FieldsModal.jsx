@@ -1,15 +1,17 @@
 import adminTableOptions from "../../constants/adminTableOptions";
 import useFetchData from "../../hooks/useFetchData";
+import useGetUserData from "../../hooks/useGetUserData";
 
 const roleOptions = [
-  { value: "admin", label: "Administrador" },
-  { value: "professional", label: "Profesional" },
+  { value: "Administrator", label: "Administrador" },
+  { value: "Professional", label: "Profesional" },
 ];
 
 const FieldsModal = ({ register, errors, subNavbarOption }) => {
   const { data: usuarios } = useFetchData("users");
   const { data: eventos } = useFetchData("events");
   const { data: localizaciones } = useFetchData("locations");
+  const userData = useGetUserData();
 
   const camposFormulario =
     adminTableOptions[subNavbarOption]?.options
@@ -18,15 +20,31 @@ const FieldsModal = ({ register, errors, subNavbarOption }) => {
         let opciones = campo.form.options || [];
 
         if (campo.form.id === "userId") {
-          opciones = usuarios.map((user) => ({
-            value: user.id,
-            label: `${user.firstName} ${user.lastName}`,
-          }));
+          opciones =
+            userData?.role === "Professional"
+              ? [
+                  {
+                    value: userData.id,
+                    label: `${userData.firstName} ${userData.lastName}`,
+                  },
+                ]
+              : usuarios.map((user) => ({
+                  value: user.id,
+                  label: `${user.firstName} ${user.lastName}`,
+                }));
         } else if (campo.form.id === "eventId") {
-          opciones = eventos.map((event) => ({
-            value: event.id,
-            label: event.name,
-          }));
+          opciones =
+            userData?.role === "Professional"
+              ? eventos
+                  .filter((event) => event.user.id === userData.id)
+                  .map((event) => ({
+                    value: event.id,
+                    label: event.name,
+                  }))
+              : eventos.map((event) => ({
+                  value: event.id,
+                  label: event.name,
+                }));
         } else if (campo.form.id === "locationId") {
           opciones = localizaciones.map((loc) => ({
             value: loc.id,

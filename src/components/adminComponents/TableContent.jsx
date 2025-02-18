@@ -1,19 +1,35 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { MdEdit, MdDelete } from "react-icons/md";
 import { renderValue } from "../../utils/tableContentFunctions";
 import adminTableOptions from "../../constants/adminTableOptions";
 
 import useFetchData from "../../hooks/useFetchData";
+import useGetUserData from "../../hooks/useGetUserData";
 import ActionModal from "./ActionModal";
 import FormModal from "./FormModal";
 
 const TableContent = ({ subNavbarOption, localData, setLocalData }) => {
   const { loading, error, deleteItem } = useFetchData(subNavbarOption);
+  const userData = useGetUserData();
 
   const [itemToDelete, setItemToDelete] = useState(null);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showUpdateModal, setShowUpdateModal] = useState(false);
   const [currentItem, setCurrentItem] = useState(null);
+
+  const filteredData = useMemo(() => {
+    if (userData?.role === "Professional") {
+      return localData.filter((item) => {
+        return (
+          item?.user?.id === userData.id ||
+          item?.event?.user?.id === userData.id
+        );
+      });
+    }
+    return localData;
+  }, [localData, userData]);
+
+  console.log(filteredData);
 
   const handleDeleteClick = (id) => {
     setItemToDelete(id);
@@ -43,7 +59,7 @@ const TableContent = ({ subNavbarOption, localData, setLocalData }) => {
       </div>
 
       <div className="admin-content__table__content">
-        {localData.map((row, rowIndex) => (
+        {filteredData.map((row, rowIndex) => (
           <div key={rowIndex} className="admin-content__table__content__data">
             {subNavbarOption !== "default" &&
               adminTableOptions[subNavbarOption].options.map(

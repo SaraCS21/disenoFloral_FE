@@ -15,7 +15,7 @@ export const getInvoices = async () => {
 
 export const getInvoiceById = async (id) => {
   try {
-    const response = await api.get(`${API_URL}${id}`);
+    const response = await api.get(`${API_URL}/${id}`);
     return response.data;
   } catch (error) {
     console.error("Error fetching invoice by id:", error);
