@@ -207,3 +207,12 @@
     background-color: #C94B3B;
 }
   
+
+.admin-content__table__content__data--buttons__edit:hover {
+    background-color: #1a80d4;
+}
+
+
+.admin-content__table__content__data--buttons__delete:hover {
+    background-color: #bb4536;
+}

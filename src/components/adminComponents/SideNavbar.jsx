@@ -52,6 +52,7 @@ const SideNavBar = ({ setSubNavbarName, setSubNavbarOption }) => {
           <li
             key={index}
             onClick={() => handleOptionClick(option.nameKey, option.option)}
+            className="navbar-side__options__item"
           >
             {option.icon}
             <p>{t(option.nameKey)}</p>

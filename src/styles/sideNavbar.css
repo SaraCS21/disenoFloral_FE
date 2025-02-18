@@ -102,7 +102,35 @@
     font-size: 2.5rem;
 }
 
+.navbar-side__options li p {
+    cursor: pointer;
+}
+
 .navbar-side__options li svg,
 .navbar-side__options li p {
     margin: 0;
+}
+
+.navbar-side__options__item p:hover {
+    position: relative;
+    
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-side__options__item p::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; 
+  left: 0;
+
+  width: 0;
+  height: 1px;
+
+  background-color: white;
+  transition: width 0.6s ease;
+}
+
+.navbar-side__options__item:hover p::after {
+  width: 100%;
 }
