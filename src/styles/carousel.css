@@ -45,6 +45,7 @@
   text-align: center;
   font-size: 1.8rem;  
   font-style: italic;
+  color: var(--color-black);
 
   overflow-y: auto;
   white-space: normal;

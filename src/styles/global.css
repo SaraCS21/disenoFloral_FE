@@ -1,11 +1,14 @@
+/* Variables de colores */
 :root {
-  --color-primary: #1A975D;
+  --color-primary: #1A975D; /* Claro */
   --color-primary-hover: #168551;
   --color-primary-opacity: #1a975d2d;
   --color-primary-darkness: #032c19;
 
   --color-danger: #C94B3B;
   --color-danger-hover: #bc4637;
+
+  --color-warning: #D98B18;
 
   --color-blue: #1D8AE1;
   --color-blue-hover: #1b7ece;
@@ -25,7 +28,38 @@
   --color-black-more-opacity: rgba(0, 0, 0, 0.734);
 
   --color-white: white;
- }
+}
+
+.dark-mode {
+  --color-primary: #136740;
+  --color-primary-hover: rgb(22, 139, 85);
+  --color-primary-opacity: #2bca802d;
+  --color-primary-darkness: #032c19;
+
+  --color-danger: #a9392a;
+  --color-danger-hover: #d54d3b;
+
+  --color-warning: #c17c13;
+
+  --color-blue: #1873be;
+  --color-blue-hover: #1D8AE1;
+
+  --color-cancel: #777777;
+  --color-cancel-hover: #949494;
+
+  --color-bg: #2c3430;
+  --color-bg-body: #212925;
+  --color-bg-details: #2c3430;
+  --color-bg-opacity: #212925cf;
+
+  --color-border: rgba(255, 255, 255, 0.148);
+
+  --color-black: white;
+  --color-black-opacity: rgba(255, 255, 255, 0.5);
+  --color-black-more-opacity: rgba(255, 255, 255, 0.734);
+
+  --color-white: black;
+}
 
 * {
   margin: 0 auto;

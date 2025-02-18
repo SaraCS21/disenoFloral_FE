@@ -12,41 +12,65 @@
   }
   
   .form-modal {
-    background-color: var(--color-bg-details);
-    padding: 20px;
-    border-radius: 8px;
     width: 400px;
+    padding: 1.8rem;
+
+    font-size: 1rem;
+    color: var(--color-black);
+
+    border-radius: 8px;
+    background-color: var(--color-bg-details);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
   .form-modal h2 {
-    margin-bottom: 20px;
+    margin-bottom: 2.5rem;
+
+    font-size: 1.8rem;
+    font-weight: normal;
   }
   
   .form-modal input,
-  .form-modal textarea {
+  .form-modal textarea,
+  .form-modal select {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
+    margin-bottom: 2.5rem;
+
+    font-size: .9rem;
+
     border: 1px solid var(--color-bg-details);
     border-radius: 4px;
   }
+
+  .form-modal__buttons {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
   
-  .form-modal button {
-    padding: 10px;
-    background-color: var(--color-primary);
-    color: var(--color-white);
+  .form-modal__buttons button {
+    margin: 0;
+    padding: .7rem 1.5rem;
+
+    font-size: 1.2rem;
+    color: white;
+
+    background-color: var(--color-blue);
     border: none;
     border-radius: 4px;
     cursor: pointer;
   }
   
-  .form-modal button[type="button"] {
+  .form-modal__buttons button[type="button"] {
     background-color: var(--color-cancel);
     margin-left: 10px;
   }
   
-  .form-modal button:hover {
+  .form-modal__buttons button:hover {
     opacity: 0.9;
   }
   

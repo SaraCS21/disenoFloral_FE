@@ -22,6 +22,7 @@
 }
 
 .modal__content p {
+    color: var(--color-black);
     font-size: 1.3rem;
 }
 
@@ -39,7 +40,7 @@
     padding: 10px 20px;
     
     font-size: 1.3rem;
-    color: var(--color-white);
+    color: white;
 
     border: none;
     border-radius: 5px;

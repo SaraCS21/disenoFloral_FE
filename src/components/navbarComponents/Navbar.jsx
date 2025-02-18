@@ -1,19 +1,24 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import LanguageSwitcher from "./LanguageSwitcher";
-import navbarOptions from "../../constants/navbarOptions";
-import "../../styles/navbar.css";
-import { useModal } from "../../contexts/ModalContext";
-import { FiUser, FiMenu, FiX } from "react-icons/fi";
+
 import useAuth from "../../hooks/useAuth";
+import { useModal } from "../../contexts/ModalContext";
+import LanguageSwitcher from "./LanguageSwitcher";
+import DarkModeSwitcher from "./DarkModeSwitcher";
+import navbarOptions from "../../constants/navbarOptions";
+
+import { FiUser, FiMenu, FiX } from "react-icons/fi";
+import "../../styles/navbar.css";
 
 const Navbar = () => {
   const { t } = useTranslation();
-  const { openModal } = useModal();
-  const [menuOpen, setMenuOpen] = useState(false);
-  const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
+
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const { isAuthenticated } = useAuth();
+  const { openModal } = useModal();
 
   const handleLoginClick = () => {
     if (isAuthenticated) {
@@ -73,6 +78,7 @@ const Navbar = () => {
         </ul>
 
         <LanguageSwitcher />
+        <DarkModeSwitcher />
       </div>
 
       <div className="navbar__right-section">

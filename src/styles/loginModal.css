@@ -9,7 +9,7 @@
   justify-content: center;
   align-items: center;
 
-  background-color: var(--color-black-more-opacity);
+  background-color: rgba(0, 0, 0, 0.734);
   z-index: 1000;
 }
 
@@ -33,13 +33,15 @@
 
 .modal-form {
   position: relative;
+  padding: 20px;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   flex: 1;
 
-  padding: 20px;
+  color: var(--color-black);
+  background-color: var(--color-bg);
 }
 
 .modal-form h2 {
@@ -98,12 +100,18 @@
   cursor: pointer;
 }
 
+.modal-form button[type="submit"]:hover {
+  background-color: var(--color-primary-hover);
+}
+
 .modal-close {
   position: absolute;
   top: 15px;
   right: 15px;
 
+  color: var(--color-black);
   font-size: 2rem;
+  
   border: none;
   background: transparent;
   cursor: pointer;

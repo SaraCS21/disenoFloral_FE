@@ -65,12 +65,14 @@ const FormModal = ({
                 subNavbarOption={subNavbarOption}
               />
 
-              <button type="submit">
-                {currentItem ? "Actualizar" : "Crear"}
-              </button>
-              <button type="button" onClick={handleCloseModal}>
-                Close
-              </button>
+              <div className="form-modal__buttons">
+                <button type="button" onClick={handleCloseModal}>
+                  Cerrar
+                </button>
+                <button type="submit">
+                  {currentItem ? "Actualizar" : "Crear"}
+                </button>
+              </div>
             </form>
           </div>
         </div>

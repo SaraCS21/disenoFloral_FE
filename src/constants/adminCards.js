@@ -5,19 +5,19 @@ const adminCards = [
   {
     nameKey: "sidenav.users",
     icon: <FaUsers />,
-    color: "#1D8AE1",
+    color: "var(--color-blue)",
     key: "users",
   },
   {
     nameKey: "sidenav.events",
     icon: <FaCalendarAlt />,
-    color: "#D98B18",
+    color: "var(--color-warning)",
     key: "events",
   },
   {
     nameKey: "sidenav.invoices",
     icon: <FaFileInvoiceDollar />,
-    color: "#C94B3B",
+    color: "var(--color-danger)",
     key: "invoices",
   },
 ];

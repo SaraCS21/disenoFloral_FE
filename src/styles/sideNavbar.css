@@ -44,9 +44,11 @@
     width: 50px;
     height: 50px;
     margin: 0;
-    border-radius: 100%;
 
+    color: var(--color-black);
     font-size: 1.3rem;
+
+    border-radius: 100%;
     background-color: var(--color-bg);
 }
 
@@ -71,10 +73,13 @@
 
 .navbar-side__user__data--name {
     font-size: 20px;
+    color: var(--color-black);
 }
 
 .navbar-side__user__data--role {
     font-size: 14px;
+    color: var(--color-black);
+
     opacity: 60%;
 }
 
@@ -109,13 +114,14 @@
 .navbar-side__options li svg,
 .navbar-side__options li p {
     margin: 0;
+    color: white;
 }
 
 .navbar-side__options__item p:hover {
     position: relative;
     
     text-decoration: none;
-    color: var(--color-white);
+    color: white;
 }
 
 .navbar-side__options__item p::after {
@@ -127,7 +133,7 @@
   width: 0;
   height: 1px;
 
-  background-color: var(--color-white);
+  background-color: white;
   transition: width 0.6s ease;
 }
 
