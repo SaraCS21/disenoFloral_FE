@@ -1,5 +1,7 @@
 import { React, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
+
 import useAuth from "../../hooks/useAuth";
 import { login } from "../../services/authService";
 import { useModal } from "../../contexts/ModalContext";
@@ -8,11 +10,14 @@ import { IoMdClose } from "react-icons/io";
 import "../../styles/loginModal.css";
 
 const LoginModal = () => {
+  const { t } = useTranslation();
+
   const { isModalOpen, closeModal } = useModal();
   const { login: loginAuth } = useAuth();
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { t } = useTranslation();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -21,6 +26,7 @@ const LoginModal = () => {
       const response = await login(email, password);
       loginAuth(response.user);
       closeModal();
+      navigate("/admin");
     } catch (error) {
       console.error("Error en login", error);
       alert(t("login.error"));
