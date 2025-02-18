@@ -1,10 +1,13 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+
 import FormModal from "./FormModal";
 import useGetUserData from "../../hooks/useGetUserData";
+import useAuth from "../../hooks/useAuth";
 
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { FaPlus } from "react-icons/fa";
-import { IoIosArrowDown } from "react-icons/io";
 import { FaUserLarge } from "react-icons/fa6";
 
 import "../../styles/adminNavbar.css";
@@ -13,10 +16,24 @@ const AdminNavbar = ({ subNavbarName, subNavbarOption, addNewItem }) => {
   const { t } = useTranslation();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const userData = useGetUserData();
+
+  const { logout } = useAuth();
+  const navigate = useNavigate();
 
   const handleCreateClick = () => {
     setIsModalOpen(true);
+  };
+
+  const handleUserClick = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const handleLogout = () => {
+    logout();
+    setIsDropdownOpen(false);
+    navigate("/");
   };
 
   return (
@@ -30,7 +47,7 @@ const AdminNavbar = ({ subNavbarName, subNavbarOption, addNewItem }) => {
           />
         </div>
 
-        <div className="admin-navbar__user">
+        <div className="admin-navbar__user" onClick={handleUserClick}>
           <div className="admin-navbar__user__image">
             {userData ? <FaUserLarge /> : <img src="" alt="user image" />}
           </div>
@@ -41,9 +58,15 @@ const AdminNavbar = ({ subNavbarName, subNavbarOption, addNewItem }) => {
                 ? `${userData.firstName} ${userData.lastName}`
                 : "User name"}
             </p>
-            <IoIosArrowDown />
+            {isDropdownOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}{" "}
           </div>
         </div>
+
+        {isDropdownOpen && (
+          <div className="admin-navbar__user__submenu">
+            <button onClick={handleLogout}>Cerrar sesión</button>
+          </div>
+        )}
       </nav>
 
       <nav className="admin-sub-navbar">
