@@ -15,10 +15,10 @@ const ContactForm = () => {
         process.env.REACT_APP_EMAILJS_USER_ID
       )
       .then(
-        (result) => {
+        () => {
           alert("Mensaje enviado con éxito");
         },
-        (error) => {
+        () => {
           alert("Hubo un error al enviar el mensaje");
         }
       );
