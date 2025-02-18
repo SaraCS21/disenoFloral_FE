@@ -1,11 +1,11 @@
 // services/locationService.js
-import axios from "axios";
+import api from "./api";
 
-const API_URL = "http://localhost:8080/api/locations";
+const API_URL = "/locations";
 
 export const getLocations = async () => {
   try {
-    const response = await axios.get(API_URL);
+    const response = await api.get(API_URL);
     return response.data;
   } catch (error) {
     console.error("Error fetching locations:", error);
@@ -15,7 +15,7 @@ export const getLocations = async () => {
 
 export const getLocationById = async (id) => {
   try {
-    const response = await axios.get(`${API_URL}${id}`);
+    const response = await api.get(`${API_URL}${id}`);
     return response.data;
   } catch (error) {
     console.error("Error fetching location by id:", error);
@@ -25,7 +25,7 @@ export const getLocationById = async (id) => {
 
 export const createLocation = async (locationData) => {
   try {
-    const response = await axios.post(API_URL, locationData);
+    const response = await api.post(API_URL, locationData);
     return response.data;
   } catch (error) {
     console.error("Error creating location:", error);
@@ -35,7 +35,7 @@ export const createLocation = async (locationData) => {
 
 export const updateLocation = async (id, locationData) => {
   try {
-    const response = await axios.put(`${API_URL}/${id}`, locationData);
+    const response = await api.put(`${API_URL}/${id}`, locationData);
     return response.data;
   } catch (error) {
     console.error("Error updating location:", error);
@@ -45,7 +45,7 @@ export const updateLocation = async (id, locationData) => {
 
 export const deleteLocation = async (id) => {
   try {
-    await axios.delete(`${API_URL}/${id}`);
+    await api.delete(`${API_URL}/${id}`);
   } catch (error) {
     console.error("Error deleting location:", error);
     throw error;

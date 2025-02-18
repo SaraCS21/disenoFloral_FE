@@ -1,11 +1,11 @@
 // services/eventService.js
-import axios from "axios";
+import api from "./api";
 
-const API_URL = "http://localhost:8080/api/event-locations";
+const API_URL = "/event-locations";
 
 export const getEventLocations = async () => {
   try {
-    const response = await axios.get(API_URL);
+    const response = await api.get(API_URL);
     return response.data;
   } catch (error) {
     console.error("Error fetching event locations:", error);
@@ -15,7 +15,7 @@ export const getEventLocations = async () => {
 
 export const getEventLocationById = async (id) => {
   try {
-    const response = await axios.get(`${API_URL}${id}`);
+    const response = await api.get(`${API_URL}${id}`);
     return response.data;
   } catch (error) {
     console.error("Error fetching event location by id:", error);
@@ -25,7 +25,7 @@ export const getEventLocationById = async (id) => {
 
 export const createEventLocation = async (eventData) => {
   try {
-    const response = await axios.post(API_URL, eventData);
+    const response = await api.post(API_URL, eventData);
     return response.data;
   } catch (error) {
     console.error("Error creating event location:", error);
@@ -35,7 +35,7 @@ export const createEventLocation = async (eventData) => {
 
 export const updateEventLocation = async (id, eventData) => {
   try {
-    const response = await axios.put(`${API_URL}/${id}`, eventData);
+    const response = await api.put(`${API_URL}/${id}`, eventData);
     return response.data;
   } catch (error) {
     console.error("Error updating event location:", error);
@@ -45,7 +45,7 @@ export const updateEventLocation = async (id, eventData) => {
 
 export const deleteEventLocation = async (id) => {
   try {
-    await axios.delete(`${API_URL}/${id}`);
+    await api.delete(`${API_URL}/${id}`);
   } catch (error) {
     console.error("Error deleting event location:", error);
     throw error;
