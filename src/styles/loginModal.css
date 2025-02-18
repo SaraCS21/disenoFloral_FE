@@ -4,17 +4,21 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+
   display: flex;
   justify-content: center;
   align-items: center;
+
+  background-color: rgba(0, 0, 0, 0.7);
   z-index: 1000;
 }
 
 .modal-content {
   display: flex;
+
   width: 50%;
   height: 50%;
+
   background: white;
   border-radius: 20px;
   overflow: hidden;
@@ -28,74 +32,87 @@
 }
 
 .modal-form {
-  flex: 1;
-  padding: 20px;
   position: relative;
+
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  flex: 1;
+
+  padding: 20px;
+}
+
+.modal-form h2 {
+  width: 100%;
+  margin-bottom: 20px;
+
+  text-align: center;
+
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.modal-form form {
+  display: flex;
+  flex-direction: column;
+
+  width: 80%;
+}
+
+.modal-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+
+  color: rgba(0, 0, 0, 0.734);
+  font-size: 1rem;
+
+  border: none;
+  border-radius: 4px;
+  background-color: #1a975d2d;
+}
+
+.modal-form input::placeholder {
+  color: rgb(255, 255, 255, 0.6);
+}
+
+.modal-form input:focus {
+  outline: none; 
+  border: none;
+}
+
+.modal-form label {
+  margin: 5px auto 10px 0;
+}
+
+.modal-form button[type="submit"] {
+  padding: 10px 30px;
+  margin-top: 40px;
+
+  font-size: 1rem;
+  color: white;
+
+  border: none;
+  border-radius: 10px;
+  background-color: #1A975D;
+  cursor: pointer;
 }
 
 .modal-close {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 15px;
+  right: 15px;
+
+  font-size: 2rem;
+  border: none;
   background: transparent;
-  border: none;
-  font-size: 20px;
   cursor: pointer;
-}
-
-h2 {
-  margin-top: 50px;
-  margin-bottom: 20px;
-}
-
-form {
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-}
-
-label {
-  margin-left: 0px;
-  margin-right: auto;
-  margin-top: 10px;
-  margin-bottom: 5px;
-}
-
-input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: none;
-  border-radius: 4px;
-  background-color: #1A975D80;
-  color: white;
-}
-input::placeholder {
-  color: rgb(255, 255, 255, 0.6);
-}
-input:focus {
-  outline: none; 
-  border: 2px solid #1A975D;
-}
-
-button[type="submit"] {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 50px;
-  padding-right: 50px;
-  background-color: #1A975D;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  margin-top: 40px;
 }
 
 .register-link {
   margin-top: 20px;
-  font-size: 0.9em;
+  font-size: 0.9rem;
+
   color: rgb(0, 0, 0, 0.6);
 }
 

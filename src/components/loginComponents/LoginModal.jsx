@@ -1,9 +1,11 @@
 import { React, useState } from "react";
-import "../../styles/loginModal.css";
+import { useTranslation } from "react-i18next";
 import useAuth from "../../hooks/useAuth";
 import { login } from "../../services/authService";
-import { useTranslation } from "react-i18next";
 import { useModal } from "../../contexts/ModalContext";
+
+import { IoMdClose } from "react-icons/io";
+import "../../styles/loginModal.css";
 
 const LoginModal = () => {
   const { isModalOpen, closeModal } = useModal();
@@ -33,7 +35,7 @@ const LoginModal = () => {
         <div className="modal-image"></div>
         <div className="modal-form">
           <button className="modal-close" onClick={closeModal}>
-            X
+            <IoMdClose />
           </button>
           <h2>{t("login.title")}</h2>
           <form onSubmit={handleLogin}>
