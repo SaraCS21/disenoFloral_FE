@@ -29,8 +29,6 @@ const TableContent = ({ subNavbarOption, localData, setLocalData }) => {
     return localData;
   }, [localData, userData]);
 
-  console.log(filteredData);
-
   const handleDeleteClick = (id) => {
     setItemToDelete(id);
     setShowDeleteModal(true);

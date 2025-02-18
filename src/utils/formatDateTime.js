@@ -13,3 +13,10 @@ export const formatDateTime = (isoString) => {
 
   return { date: formattedDate, time: formattedTime };
 };
+
+export const formatDateEvents = (date, time) => {
+  const dateObj = new Date(date);
+  const [hours, minutes] = time.split(":");
+  dateObj.setHours(hours, minutes, 0);
+  return dateObj.toISOString().split(".")[0];
+};

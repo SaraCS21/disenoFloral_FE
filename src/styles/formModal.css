@@ -29,6 +29,10 @@
     font-size: 1.8rem;
     font-weight: normal;
   }
+
+  .form-modal div {
+    padding: .5rem 0;
+  }
   
   .form-modal input,
   .form-modal textarea,
@@ -36,7 +40,6 @@
     width: 100%;
     padding: 10px;
     margin: 10px 0;
-    margin-bottom: 2.5rem;
 
     font-size: .9rem;
 
@@ -76,7 +79,6 @@
   
   .error-message {
     color: var(--color-danger);
-    font-size: 12px;
-    margin-top: 4px;
+    font-size: .9rem;
   }
   

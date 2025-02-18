@@ -1,9 +1,10 @@
 import { useForm } from "react-hook-form";
+import { useEffect } from "react";
 import useFetchData from "../../hooks/useFetchData";
 import FieldsModal from "./FieldsModal";
+import { formatDateEvents } from "../../utils/formatDateTime";
 
 import "../../styles/formModal.css";
-import { useEffect } from "react";
 
 const FormModal = ({
   isModalOpen,
@@ -35,7 +36,13 @@ const FormModal = ({
   };
 
   const onSubmit = async (data) => {
-    const newItem = await handleCreateOrUpdate(data);
+    const formattedData = {
+      ...data,
+      startDate: formatDateEvents(data.startDate, data.startTime),
+      endDate: formatDateEvents(data.endDate, data.endTime),
+    };
+
+    const newItem = await handleCreateOrUpdate(formattedData);
 
     if (newItem) {
       if (isUpdating) {

@@ -79,7 +79,7 @@ const FieldsModal = ({ register, errors, subNavbarOption }) => {
             />
           )}
           {errors[campo.id] && (
-            <p className="error">{errors[campo.id]?.message}</p>
+            <p className="error-message">{errors[campo.id]?.message}</p>
           )}
         </div>
       ))}
