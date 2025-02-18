@@ -7,7 +7,7 @@
     width: 100%;
     padding: 2rem;
 
-    background-color: #E7E7E7;
+    background-color: var(--color-bg-details);
 }
 
 .our-works h1 {
@@ -47,11 +47,11 @@
     padding: 10px;
 
     font-size: 2em;
-    color: white;
+    color: var(--color-white);
 
     border: none;
     border-radius: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--color-black-opacity);
 
     cursor: pointer;
     transform: translateY(-50%);
@@ -76,12 +76,12 @@
     height: 10px;
     margin: 0 5px;
     border-radius: 50%;
-    background-color: gray;
+    background-color: var(--color-cancel);
     cursor: pointer;
 }
 
 .our-works__carousel__dots span.active {
-    background-color: black;
+    background-color: var(--color-black);
 }
 
 

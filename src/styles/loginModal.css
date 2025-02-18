@@ -9,7 +9,7 @@
   justify-content: center;
   align-items: center;
 
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: var(--color-black-more-opacity);
   z-index: 1000;
 }
 
@@ -19,7 +19,7 @@
   width: 50%;
   height: 50%;
 
-  background: white;
+  background: var(--color-white);
   border-radius: 20px;
   overflow: hidden;
 }
@@ -64,12 +64,12 @@
   padding: 10px;
   margin-bottom: 15px;
 
-  color: rgba(0, 0, 0, 0.734);
+  color: var(--color-black-more-opacity);
   font-size: 1rem;
 
   border: none;
   border-radius: 4px;
-  background-color: #1a975d2d;
+  background-color: var(--color-primary-opacity);
 }
 
 .modal-form input::placeholder {
@@ -90,11 +90,11 @@
   margin-top: 40px;
 
   font-size: 1rem;
-  color: white;
+  color: var(--color-white);
 
   border: none;
   border-radius: 10px;
-  background-color: #1A975D;
+  background-color: var(--color-primary);
   cursor: pointer;
 }
 
@@ -113,11 +113,11 @@
   margin-top: 20px;
   font-size: 0.9rem;
 
-  color: rgb(0, 0, 0, 0.6);
+  color: var(--color-black-opacity);
 }
 
 .register-link a {
-  color: rgb(0, 0, 0, 0.6);
+  color: var(--color-black-opacity);
   text-decoration: underline;
 }
 

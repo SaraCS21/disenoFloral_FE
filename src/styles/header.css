@@ -15,7 +15,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--color-black-opacity);
 }
 
 .header-info {
@@ -31,7 +31,7 @@
     height: 45vh;
     padding: 3rem 10rem;
 
-    color: white;
+    color: var(--color-white);
 }
 
 .header-info h1 {
@@ -52,7 +52,7 @@
 
 @media (max-width: 767px) {
     .header-image::after {
-        background-color: rgba(0, 0, 0, 0.689);
+        background-color: var(--color-black-more-opacity);
     }
 
     .header-info {

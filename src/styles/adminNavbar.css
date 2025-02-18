@@ -11,8 +11,8 @@
     justify-content: space-between;
     align-items: center;
 
-    border-bottom: 2px solid rgba(0, 0, 0, 0.148);
-    background-color: #DEDEDE;
+    border-bottom: 2px solid var(--color-border);
+    background-color: var(--color-bg);
 }
 
 .admin-navbar__logo {
@@ -32,12 +32,12 @@
     width: 20%;
     height: 100%;
 
-    background-color: #1A975D;
+    background-color: var(--color-primary);
     cursor: pointer;
 }
 
 .admin-navbar__user:hover {
-    background-color: #168551;
+    background-color: var(--color-primary-hover);
 }
 
 .admin-navbar__user__image {
@@ -51,7 +51,7 @@
     border-radius: 100%;
 
     font-size: 1.3rem;
-    background-color: #DEDEDE;
+    background-color: var(--color-bg);
 }
 
 .admin-navbar__user__image img {
@@ -97,7 +97,7 @@
     margin: 0;
 
     font-size: 1.2rem;
-    background-color: #1A975D;
+    background-color: var(--color-primary);
 
     border-radius: 100%;
     border: none;
@@ -109,7 +109,7 @@
 }
 
 .admin-sub-navbar button:hover {
-    background-color: #168853;
+    background-color: var(--color-primary-hover);
 }
 
 .admin-navbar__user__submenu {
@@ -124,10 +124,9 @@
     justify-content: flex-end;
     align-items: center;
 
-    background-color: white;
-    border: 1px solid #ddd;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
     padding: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
   .admin-navbar__user__submenu button {
@@ -136,7 +135,7 @@
     
     font-weight: 500;
     font-size: 1rem;
-    color: #C94B3B;
+    color: var(--color-danger);
 
     background: none;
     border: none;
@@ -153,7 +152,7 @@
     height: 1px;
   
     text-decoration: underline;
-    background-color: #C94B3B;
+    background-color: var(--color-danger);
     transition: width 0.6s ease;
   }
   

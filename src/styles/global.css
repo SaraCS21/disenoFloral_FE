@@ -1,3 +1,32 @@
+:root {
+  --color-primary: #1A975D;
+  --color-primary-hover: #168551;
+  --color-primary-opacity: #1a975d2d;
+  --color-primary-darkness: #032c19;
+
+  --color-danger: #C94B3B;
+  --color-danger-hover: #bc4637;
+
+  --color-blue: #1D8AE1;
+  --color-blue-hover: #1b7ece;
+
+  --color-cancel: #949494;
+  --color-cancel-hover: #777777;
+
+  --color-bg: #DEDEDE;
+  --color-bg-body: #f0f0f0;
+  --color-bg-details: #E7E7E7;
+  --color-bg-opacity: #f0f0f0cf;
+
+  --color-border: rgba(0, 0, 0, 0.148);
+
+  --color-black: black;
+  --color-black-opacity: rgba(0, 0, 0, 0.5);
+  --color-black-more-opacity: rgba(0, 0, 0, 0.734);
+
+  --color-white: white;
+ }
+
 * {
   margin: 0 auto;
   box-sizing: border-box;
@@ -5,5 +34,5 @@
 
 body {
   font-family: "Inter", serif;
-  background-color: #f0f0f0;
+  background-color: var(--color-bg-body);
 }
